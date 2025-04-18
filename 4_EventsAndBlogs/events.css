@@ -229,6 +229,7 @@ upcoming events code starts here */
 /* 
    BLOG CONTAINER SECTION
  */
+/* Blog container section */
 .blog-part1 {
     display: inline-flex;
     align-items: center;
@@ -242,6 +243,9 @@ upcoming events code starts here */
     height: 680px;
     flex-direction: column;
     background-color: #f1f1f1;
+    text-decoration: none;
+    color: inherit !important;
+    cursor: pointer;
 }
 
 .blog1 img {
@@ -288,6 +292,9 @@ upcoming events code starts here */
 .blog2, .blog3 {
     height: 50%;
     background-color: #f1f1f1;
+    text-decoration: none;
+    color: inherit !important;
+    cursor: pointer;
 }
 
 .blog2 img, .blog3 img {
@@ -302,6 +309,7 @@ upcoming events code starts here */
     margin-bottom: 100px;
 }
 
+/* Blog hover animations */
 .blog1, .blog2, .blog3 {
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -310,6 +318,12 @@ upcoming events code starts here */
 .blog1:hover, .blog2:hover, .blog3:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    color: inherit !important;
+}
+
+.blog1:hover h5, .blog2:hover h5, .blog3:hover h5,
+.blog1:hover p, .blog2:hover p, .blog3:hover p {
+    color: inherit;
 }
 
 .blog1 img, .blog2 img, .blog3 img {
@@ -326,6 +340,209 @@ upcoming events code starts here */
 
 .blog1:hover .blog-content, .blog2:hover .blog-content, .blog3:hover .blog-content {
     background-color: #f8f8f8;
+}
+
+.blog1, .blog2, .blog3 {
+    color: inherit !important;
+}
+
+.blog1:hover, .blog2:hover, .blog3:hover {
+    color: inherit !important;
+}
+
+/* Popup styles */
+.blog-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.blog-popup-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.blog-popup {
+    background-color: white;
+    width: 80%;
+    max-width: 800px;
+    max-height: 80vh;
+    border-radius: 8px;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.blog-popup-overlay.active .blog-popup {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.blog-popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.blog-popup-header h2 {
+    margin: 0;
+    color: #2D3648;
+    font-size: 24px;
+}
+
+.blog-popup-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #717D96;
+    transition: color 0.3s ease;
+}
+
+.blog-popup-close:hover {
+    color: #FAA831;
+}
+
+.blog-popup-content {
+    padding: 20px;
+}
+
+.blog-popup-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.blog-popup-text {
+    color: #717D96;
+    line-height: 1.6;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 1200px) {
+    .blog-container {
+        width: 90%;
+        margin: 0 auto;
+    }
+    
+    .blog-part1, .blog-part2 {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 40px;
+        margin-bottom: 40px;
+    }
+    
+    .big-blog, .small-blog {
+        width: 100%;
+    }
+    
+    .blog1, .blog2, .blog3 {
+        width: 100%;
+        height: auto;
+        margin-bottom: 40px;
+    }
+    
+    .blog1 img, .blog2 img, .blog3 img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+    
+    .small-blog {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .blog-container {
+        width: 95%;
+    }
+    
+    .blog1, .blog2, .blog3 {
+        height: 400px;
+        background-color: #f1f1f1;
+        overflow: hidden;
+    }
+    
+    .blog1 img, .blog2 img, .blog3 img {
+        height: 300px;
+        object-fit: cover;
+    }
+    
+    .blog-content {
+        padding: 15px;
+        height: 100px;
+        overflow: hidden;
+    }
+
+    .blog-popup {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        padding-top: 120px;
+    }
+    
+    .blog-container {
+        width: 90%;
+    }
+    
+    .blog-part1, .blog-part2 {
+        margin-bottom: 20px;
+        gap: 20px;
+    }
+    
+    .blog1, .blog2, .blog3 {
+        height: 330px;
+        margin-bottom: 20px;
+    }
+    
+    .blog1 img, .blog2 img, .blog3 img {
+        height: 230px;
+    }
+    
+    .blog-content {
+        padding: 10px;
+        height: 100px;
+    }
+    
+    .blog1 h5, .blog2 h5, .blog3 h5 {
+        font-size: 18px;
+    }
+    
+    .blog1 p, .blog2 p, .blog3 p {
+        font-size: 13px;
+    }
+
+    .blog-popup {
+        width: 95%;
+    }
+
+    .blog-popup-header h2 {
+        font-size: 20px;
+    }
 }
 
 @media screen and (max-width: 1200px) {
@@ -582,7 +799,7 @@ upcoming events code starts here */
     left: 0;
     width: 100%;
     height: 150%;
-    background: url('footer1.jpg');
+    background: url('/Images/footer-img.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

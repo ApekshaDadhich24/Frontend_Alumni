@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events And Blogs</title>
-    <link rel="icon" href="/Images/title-logo.png">
+    <title>Events&Blogs</title>
+    <link rel="icon" href="/Images/link-logo.png">
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="events.css">
@@ -125,7 +125,7 @@
               
               <div class="h-[120px] w-full lg:w-[350px] xl:w-[475px] bg-[#0A3278] p-2.5 flex items-center justify-center lg:justify-start">
                   <div class="h-[70px] w-full max-w-[415px] px-4">
-                      <img src="/Images/_Logo_.png" alt="SRM logo" class="h-full w-full object-contain" />
+                      <img src="/Images/logo.png" alt="SRM logo" class="h-full w-full object-contain" />
                   </div>
               </div>
               <div class="custom-gradient flex flex-col w-full lg:flex-1 lg:h-[120px]">
@@ -328,12 +328,12 @@
 
     <div id="past" class="contentevent active">
         <div class="events-grid">
-            <div class="event"><img src="event1.jpg" alt="Orientation"><p>Orientation</p></div>
-            <div class="event"><img src="event2.jpg" alt="Ethnic Day"><p>Ethnic Day</p></div>
-            <div class="event"><img src="event3.jpg" alt="Reward Ceremony"><p>Reward Ceremony</p></div>
-            <div class="event"><img src="event4.jpg" alt="Cultural Fest"><p>Cultural Fest</p></div>
-            <div class="event"><img src="event5.jpg" alt="Industrial Visit"><p>Industrial Visit</p></div>
-            <div class="event"><img src="event6.jpg" alt="Yearly Fest"><p>Yearly Fest</p></div>
+            <div class="event"><img src="/Images/4_Events&Blogs-img/event1.jpg" alt="Orientation"><p>Orientation</p></div>
+            <div class="event"><img src="/Images/4_Events&Blogs-img/event2.jpg" alt="Ethnic Day"><p>Ethnic Day</p></div>
+            <div class="event"><img src="/Images/4_Events&Blogs-img/event3.jpg" alt="Reward Ceremony"><p>Reward Ceremony</p></div>
+            <div class="event"><img src="/Images/4_Events&Blogs-img/event4.jpg" alt="Cultural Fest"><p>Cultural Fest</p></div>
+            <div class="event"><img src="/Images/4_Events&Blogs-img/event5.jpg" alt="Industrial Visit"><p>Industrial Visit</p></div>
+            <div class="event"><img src="/Images/4_Events&Blogs-img/event6.jpg" alt="Yearly Fest"><p>Yearly Fest</p></div>
         </div>
     </div>
 
@@ -391,8 +391,8 @@
     <section class="blog-container flex flex-col items-center">
         <div class="blog-part1">
             <div class="big-blog">
-                <div class="blog1">
-                    <img src="/Images/4_Events&Blogs-img/images/E01.jpg" alt="" />
+                <div class="blog1" data-blog-id="1">
+                    <img src="/Images/4_Events&Blogs-img/event6.jpg" alt="" />
                     <div class="blog-content">
                         <h5>Blog1</h5>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. At purus tellus arcu sit nibh consectetur.</p>
@@ -400,15 +400,15 @@
                 </div>
             </div>
             <div class="small-blog">
-                <div class="blog2">
-                    <img src="/Images/4_Events&Blogs-img/images/E02.jpg" alt="" />
+                <div class="blog2" data-blog-id="2">
+                    <img src="/Images/4_Events&Blogs-img/event5.jpg" alt="" />
                     <div class="blog-content">
                         <h5>Blog2</h5>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. At purus tellus arcu sit nibh consectetur.</p>
                     </div>
                 </div>
-                <div class="blog3">
-                    <img src="/Images/4_Events&Blogs-img/images/E03.jpg" alt="" />
+                <div class="blog3" data-blog-id="3">
+                    <img src="/Images/4_Events&Blogs-img/event4.jpg" alt="" />
                     <div class="blog-content">
                         <h5>Blog3</h5>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. At purus tellus arcu sit nibh consectetur.</p>
@@ -416,11 +416,11 @@
                 </div>
             </div>
         </div>
-        
+                
         <div class="blog-part2">
             <div class="big-blog">
-                <div class="blog1">
-                    <img src="/Images/4_Events&Blogs-img/images/E04.jpg" alt="" />
+                <div class="blog1" data-blog-id="6">
+                    <img src="/Images/4_Events&Blogs-img/event3.jpg" alt="" />
                     <div class="blog-content">
                         <h5>Blog6</h5>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. At purus tellus arcu sit nibh consectetur.</p>
@@ -428,15 +428,15 @@
                 </div>
             </div>
             <div class="small-blog">
-                <div class="blog2">
-                    <img src="/Images/4_Events&Blogs-img/images/E05.jpg" alt="" />
+                <div class="blog2" data-blog-id="4">
+                    <img src="/Images/4_Events&Blogs-img/event2.jpg" alt="" />
                     <div class="blog-content">
                         <h5>Blog4</h5>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. At purus tellus arcu sit nibh consectetur.</p>
                     </div>
                 </div>
-                <div class="blog3">
-                    <img src="/Images/4_Events&Blogs-img/images/E06.jpg" alt="" />
+                <div class="blog3" data-blog-id="5">
+                    <img src="/Images/4_Events&Blogs-img/event1.jpg" alt="" />
                     <div class="blog-content">
                         <h5>Blog5</h5>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. At purus tellus arcu sit nibh consectetur.</p>
@@ -445,6 +445,122 @@
             </div>
         </div>
     </section>
+
+    <!-- Blog Popup Overlay -->
+    <div class="blog-popup-overlay" id="blog-popup-overlay">
+        <div class="blog-popup">
+            <div class="blog-popup-header">
+                <h2 id="blog-popup-title">Blog Title</h2>
+                <button class="blog-popup-close" id="blog-popup-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="blog-popup-content">
+                <img src="" alt="Blog Image" class="blog-popup-image" id="blog-popup-image">
+                <div class="blog-popup-text" id="blog-popup-text">
+                    <!-- Blog content will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Blog data - normally this would come from a database
+        const blogData = {
+            1: {
+                title: "Blog1",
+                image: "/Images/4_Events&Blogs-img/images/E01.jpg",
+                content: `<p>This is the full content of Blog 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac felis vitae nunc lobortis mattis. Nullam tincidunt nibh et nisi efficitur, sit amet aliquet mauris bibendum.</p>
+                <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed euismod, nisl a tincidunt ultricies, leo nunc lacinia eros, ac dapibus metus nisi id orci. Curabitur nec sem ac urna cursus varius.</p>
+                <p>Donec aliquam justo vitae mi tempor, vel consequat justo facilisis. Morbi convallis lorem ut nibh eleifend, in ultricies sapien cursus. Etiam aliquam consectetur justo, in sagittis dui bibendum ac.</p>`
+            },
+            2: {
+                title: "Blog2",
+                image: "/Images/4_Events&Blogs-img/images/E02.jpg",
+                content: `<p>Welcome to Blog 2! Sed vestibulum justo sit amet felis volutpat, vel tempor ligula bibendum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
+                <p>Fusce ut odio vel urna placerat placerat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque ullamcorper hendrerit justo, vel tincidunt magna finibus ac.</p>
+                <p>Nulla facilisi. Proin efficitur libero vel nisi tincidunt, vel feugiat nisl convallis. Donec consectetur orci ac eros posuere, vel tincidunt justo gravida.</p>`
+            },
+            3: {
+                title: "Blog3",
+                image: "/Images/4_Events&Blogs-img/images/E03.jpg",
+                content: `<p>Blog 3 brings you exciting content! Integer vel aliquam neque. Etiam vel magna vel nisl commodo fermentum vel vel libero. Phasellus vel justo vel libero posuere tincidunt.</p>
+                <p>Fusce ac diam vel magna lobortis vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec aliquam justo vitae mi tempor, vel consequat justo facilisis.</p>
+                <p>Morbi convallis lorem ut nibh eleifend, in ultricies sapien cursus. Etiam aliquam consectetur justo, in sagittis dui bibendum ac. Sed vestibulum justo sit amet felis volutpat, vel tempor ligula bibendum.</p>`
+            },
+            4: {
+                title: "Blog4",
+                image: "/Images/4_Events&Blogs-img/images/E05.jpg",
+                content: `<p>Discover Blog 4! Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed euismod, nisl a tincidunt ultricies, leo nunc lacinia eros, ac dapibus metus nisi id orci.</p>
+                <p>Curabitur nec sem ac urna cursus varius. Integer vel aliquam neque. Etiam vel magna vel nisl commodo fermentum vel vel libero. Phasellus vel justo vel libero posuere tincidunt.</p>
+                <p>Fusce ac diam vel magna lobortis vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec aliquam justo vitae mi tempor, vel consequat justo facilisis.</p>`
+            },
+            5: {
+                title: "Blog5",
+                image: "/Images/4_Events&Blogs-img/images/E06.jpg",
+                content: `<p>Blog 5 is here! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac felis vitae nunc lobortis mattis. Nullam tincidunt nibh et nisi efficitur, sit amet aliquet mauris bibendum.</p>
+                <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed euismod, nisl a tincidunt ultricies, leo nunc lacinia eros, ac dapibus metus nisi id orci.</p>
+                <p>Curabitur nec sem ac urna cursus varius. Integer vel aliquam neque. Etiam vel magna vel nisl commodo fermentum vel vel libero. Phasellus vel justo vel libero posuere tincidunt.</p>`
+            },
+            6: {
+                title: "Blog6",
+                image: "/Images/4_Events&Blogs-img/images/E04.jpg",
+                content: `<p>Welcome to Blog 6! Fusce ut odio vel urna placerat placerat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                <p>Quisque ullamcorper hendrerit justo, vel tincidunt magna finibus ac. Nulla facilisi. Proin efficitur libero vel nisi tincidunt, vel feugiat nisl convallis.</p>
+                <p>Donec consectetur orci ac eros posuere, vel tincidunt justo gravida. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac felis vitae nunc lobortis mattis. Nullam tincidunt nibh et nisi efficitur, sit amet aliquet mauris bibendum.</p>`
+            }
+        };
+
+        // Get all blog elements
+        const blogElements = document.querySelectorAll('.blog1, .blog2, .blog3');
+        const popupOverlay = document.getElementById('blog-popup-overlay');
+        const popupClose = document.getElementById('blog-popup-close');
+        const popupTitle = document.getElementById('blog-popup-title');
+        const popupImage = document.getElementById('blog-popup-image');
+        const popupText = document.getElementById('blog-popup-text');
+
+        // Add click event listeners to all blog elements
+        blogElements.forEach(blog => {
+            blog.addEventListener('click', function() {
+                const blogId = this.getAttribute('data-blog-id');
+                openBlogPopup(blogId);
+            });
+        });
+
+        // Function to open blog popup with specific content
+        function openBlogPopup(blogId) {
+            const blog = blogData[blogId];
+            if (blog) {
+                popupTitle.textContent = blog.title;
+                popupImage.src = blog.image;
+                popupText.innerHTML = blog.content;
+                popupOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when popup is open
+            }
+        }
+
+        // Close popup when clicking the close button
+        popupClose.addEventListener('click', closeBlogPopup);
+
+        // Close popup when clicking outside the popup content
+        popupOverlay.addEventListener('click', function(e) {
+            if (e.target === popupOverlay) {
+                closeBlogPopup();
+            }
+        });
+
+        // Close popup when pressing ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && popupOverlay.classList.contains('active')) {
+                closeBlogPopup();
+            }
+        });
+
+        // Function to close blog popup
+        function closeBlogPopup() {
+            popupOverlay.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+    </script>
     
 
     <!-- footer code starts header -->
@@ -452,7 +568,7 @@
     <footer>
         <div class="complete-footer">
             <div class="foot-logo">
-                <img src="logo.png" alt="srm logo">
+                <img src="/Images/logo.png" alt="srm logo">
             </div>
             <div class="foot-links">
                 <div class="link1">
