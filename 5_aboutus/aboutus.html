@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Alumni Connect</title>
+    <link rel="icon" href="/Images/title-logo.png">
+    <link rel="stylesheet" href="aboutus.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .custom-gradient {
+            background: linear-gradient(
+                180deg,
+                rgba(0, 0, 0, 0.8) 0%,
+                rgba(0, 0, 0, 0.5) 35.89%,
+                rgba(0, 0, 0, 0.0) 99.58%
+              ),
+              rgba(0, 56, 152, 0.5);
+          }
+          nav a:hover {
+              color: #FAA831 !important;
+          }
+          nav a.border:hover , #logoutBtn:hover{
+              color: black !important;
+          }
+          .nav-buttons {
+              display: flex;
+              align-items: center;
+          }
+  
+          .nav-btn {
+              margin-left: 0.75rem;
+              cursor: pointer;
+              transition: all 0.3s;
+          }
+        
+          .auth-btn {
+              border: 1px solid white;
+              color: white;
+              transition: all 0.3s ease;
+          }
+          
+          .auth-btn:hover {
+              background-color: white;
+              color: black;
+          }
+          
+          .auth-btn:hover a {
+              color: black !important;
+          }
+  
+          .profile {
+              display: none; 
+              margin-left: 0.75rem;
+              position: relative;
+              cursor: pointer;
+          }
+  
+          .profile-circle {
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              background-color: #2c4d88;
+              color: #e6f0fd;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-weight: bold;
+              transition: transform 0.2s ease, box-shadow 0.2s ease;
+          }
+          
+          .profile-link:hover .profile-circle {
+              transform: scale(1.05);
+              box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+          }
+          
+          .profile-link:active .profile-circle {
+              transform: scale(0.95);
+          }
+  
+          .hamburger {
+              display: none;
+              cursor: pointer;
+          }
+  
+          .hamburger div {
+              width: 25px;
+              height: 3px;
+              background-color: white;
+              margin: 5px 0;
+              transition: all 0.3s;
+          }
+          
+          @media (max-width: 1023px) {
+              .mobile-header-row {
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  width: 100%;
+              }
+              
+              .mobile-logo-container {
+                  flex: 1;
+              }
+              
+              .mobile-buttons-container {
+                  display: flex;
+                  align-items: center;
+                  margin-right: 10px;
+              }
+              
+              .mobile-nav-btn {
+                  font-size: 0.8rem;
+              }
+          }
+      </style>
+  </head>
+  <body>
+  <!-- navbar code starts here -->
+      <header>
+        <nav class="w-full absolute top-0 z-50">
+          <div class="flex flex-col lg:flex-row w-full h-auto text-white">
+              
+              <div class="h-[120px] w-full lg:w-[350px] xl:w-[475px] bg-[#0A3278] p-2.5 flex items-center justify-center lg:justify-start">
+                  <div class="h-[70px] w-full max-w-[415px] px-4">
+                      <img src="/Images/_Logo_.png" alt="SRM logo" class="h-full w-full object-contain" />
+                  </div>
+              </div>
+              <div class="custom-gradient flex flex-col w-full lg:flex-1 lg:h-[120px]">
+                  <div class="hidden lg:flex items-center justify-between h-full px-4 xl:px-6 text-base xl:text-lg">
+                      <div class="flex gap-[15px] xl:gap-[30px]">
+                          <a href="../1_HomePage\homePage.html" class="relative text-white transition-colors duration-300 hover:text-[#FAA831] after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-[#FAA831] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left">
+                              Home
+                          </a>
+                          <a href="../2_AlumniArchives/archives.html" class="relative text-white transition-colors duration-300 hover:text-[#FAA831] after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-[#FAA831] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left">
+                              Alumni Archives
+                          </a>
+                          <a href="../3_Mentors/mentors.html" class="relative text-white transition-colors duration-300 hover:text-[#FAA831] after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-[#FAA831] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left">
+                              Mentors
+                          </a>
+                          <a href="/4_EventsAndBlogs/Events.html" class="relative text-white transition-colors duration-300 hover:text-[#FAA831] after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-[#FAA831] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left">
+                              Events & Blogs
+                          </a>
+                          <a href="../5_aboutus\aboutus.html" class="relative text-white transition-colors duration-300 hover:text-[#FAA831] after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-[#FAA831] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left">
+                              About us
+                          </a>
+                      </div>
+                      <div class="nav-buttons flex items-center">
+                          <button class="nav-btn auth-btn text-center border border-white text-white px-2 py-2 rounded hover:bg-white hover:text-black transition duration-300 ml-2" id="loginBtn"> 
+                              <a href="../7_Login/login.html" class="no-underline text-inherit hover:text-inherit">Login</a>
+                          </button>
+                          <button class="nav-btn auth-btn text-center border border-white text-white px-2 py-2 rounded hover:bg-white hover:text-black transition duration-300 ml-2" id="registerBtn"> 
+                              <a href="../8_Register/register.html" class="no-underline text-inherit hover:text-inherit">Register</a> 
+                          </button>
+                          <button class="nav-btn auth-btn text-center border border-white text-white px-2 py-2 rounded hover:bg-white hover:text-black transition duration-300 ml-2" id="logoutBtn" style="display: none;">Logout</button>
+                          
+                          <div class="profile" id="profileSection">
+                              <a href="../6_Profile_Demo/profile.html" class="profile-link" id="profileLink">
+                                  <div class="profile-circle">JS</div>
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+      
+                  <div class="lg:hidden mobile-header-row flex items-center px-4 py-3">
+                      <div class="mobile-buttons-container flex items-center">
+                          <button class="nav-btn mobile-nav-btn auth-btn text-center border border-white text-white px-2 py-1 rounded hover:bg-white hover:text-black transition duration-300 ml-1" id="mobile-loginBtn"> 
+                              <a href="../7_Login/login.html" class="no-underline text-inherit hover:text-inherit">Login</a>
+                          </button>
+                          <button class="nav-btn mobile-nav-btn auth-btn text-center border border-white text-white px-2 py-1 rounded hover:bg-white hover:text-black transition duration-300 ml-1" id="mobile-registerBtn"> 
+                              <a href="../8_Register/register.html" class="no-underline text-inherit hover:text-inherit">Register</a> 
+                          </button>
+                          <button class="nav-btn mobile-nav-btn auth-btn text-center border border-white text-white px-2 py-1 rounded hover:bg-white hover:text-black transition duration-300 ml-1" id="mobile-logoutBtn" style="display: none;">Logout</button>
+                          
+                          <div class="profile" id="mobile-profileSection">
+                              <a href="../6_Profile_Demo/profile.html" class="profile-link" id="mobile-profileLink">
+                                  <div class="profile-circle">JS</div>
+                              </a>
+                          </div>
+                      </div>
+                    
+                      <button id="menu-toggle" class="text-white focus:outline-none ml-4">
+                          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+                          </svg>
+                      </button>
+                  </div>
+      
+                  <div id="mobile-menu" class="lg:hidden custom-gradient hidden flex-col px-6 pb-4 text-white text-base space-y-2">
+                      <a href="/1_homePage/homePage.html" class="block py-2 relative transition-colors duration-300 hover:text-[#FAA831] after:content-[''] after:absolute after:bottom-1 after:left-0 after:h-[2px] after:w-full after:bg-[#FAA831] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left">
+                          Home
+                      </a>
+                      <a href="../2_alumniArchives/archives.html" class="block py-2 relative transition-colors duration-300 hover:text-[#FAA831] after:content-[''] after:absolute after:bottom-1 after:left-0 after:h-[2px] after:w-full after:bg-[#FAA831] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left">
+                          Alumni Archives
+                      </a>
+                      <a href="../3_Mentors\mentors.html" class="block py-2 relative transition-colors duration-300 hover:text-[#FAA831] after:content-[''] after:absolute after:bottom-1 after:left-0 after:h-[2px] after:w-full after:bg-[#FAA831] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left">
+                          Mentors
+                      </a>
+                      <a href="/4_EventsAndBlogs/Events.html" class="block py-2 relative transition-colors duration-300 hover:text-[#FAA831] after:content-[''] after:absolute after:bottom-1 after:left-0 after:h-[2px] after:w-full after:bg-[#FAA831] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left">
+                          Events & Blogs
+                      </a>
+                      <a href="../5_aboutus\aboutus.html" class="block py-2 relative transition-colors duration-300 hover:text-[#FAA831] after:content-[''] after:absolute after:bottom-1 after:left-0 after:h-[2px] after:w-full after:bg-[#FAA831] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left">
+                          About us
+                      </a>
+                  </div>
+              </div>
+          </div>
+      </nav>
+      <script src="../CustomAlerts/custom-alerts.js"></script>
+      <script>
+          const toggleBtn = document.getElementById('menu-toggle');
+          const mobileMenu = document.getElementById('mobile-menu');
+      
+          toggleBtn.addEventListener('click', () => {
+              mobileMenu.classList.toggle('hidden');
+          });
+  
+          window.addEventListener('resize', () => {
+              if (window.innerWidth >= 1024) {
+                  mobileMenu.classList.add('hidden');
+              }
+          });
+  
+          document.addEventListener('DOMContentLoaded', function() {
+              const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
+              toggleAuthState(isAuthenticated);
+              if (isAuthenticated) {
+                  const username = localStorage.getItem('username') || 'User';
+                  const initials = username.substring(0, 2).toUpperCase();
+                  document.querySelectorAll('.profile-circle').forEach(circle => {
+                      circle.textContent = initials;
+                  });
+              }
+              setupAuthButton('loginBtn', "../7_Login/login.html");
+              setupAuthButton('registerBtn', "../8_Register/register.html");
+              setupAuthButton('profileLink', "../6_Pofile_Demo/profile.html");
+           
+              setupAuthButton('mobile-loginBtn', "../7_Login/login.html");
+              setupAuthButton('mobile-registerBtn', "../8_Register/register.html");
+              setupAuthButton('mobile-profileLink', "../6_Pofile_Demo/profile.html");
+             
+              const logoutButtons = ['logoutBtn', 'mobile-logoutBtn'];
+              logoutButtons.forEach(btnId => {
+                  const btn = document.getElementById(btnId);
+                  if (btn) {
+                      btn.addEventListener('click', () => {
+                          localStorage.removeItem('access_token');
+                          localStorage.removeItem('refresh_token');
+                          localStorage.removeItem('isAuthenticated');
+                          localStorage.removeItem('username');
+                          toggleAuthState(false);
+                          if (typeof showCustomAlert === 'function') {
+                              showCustomAlert('You have been logged out successfully!');
+                          } 
+                          else {
+                              alert('You have been logged out successfully!');
+                          }
+                          setTimeout(() => {
+                              window.location.href = "1_HomePage\homePage.html";
+                          }, 2000);
+                      });
+                  }
+              });
+          });
+  
+          function setupAuthButton(buttonId, destination) {
+              const button = document.getElementById(buttonId);
+              if (button) {
+                  button.addEventListener('click', () => {
+                      window.location.href = destination;
+                  });
+              }
+          }
+  
+          function toggleAuthState(isLoggedIn) {
+              const elements = {
+                  loginBtn: ['loginBtn', 'mobile-loginBtn'],
+                  registerBtn: ['registerBtn', 'mobile-registerBtn'],
+                  logoutBtn: ['logoutBtn', 'mobile-logoutBtn'],
+                  profileSection: ['profileSection', 'mobile-profileSection']
+              };
+  
+              for (const [elementType, elementIds] of Object.entries(elements)) {
+                  elementIds.forEach(id => {
+                      const element = document.getElementById(id);
+                      if (element) {
+                          if (elementType === 'loginBtn' || elementType === 'registerBtn') {
+                              element.style.display = isLoggedIn ? 'none' : 'block';
+                          } else {
+                              element.style.display = isLoggedIn ? 'block' : 'none';
+                          }
+                      }
+                  });
+              }
+          }
+      </script>
+      </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 style="margin-top:100px;">Connecting Alumni, Empowering Students, Building Futures</h1>
+            <p >The Alumni Connect platform bridges the gap between graduates and current students, creating a dynamic ecosystem for mentorship, career opportunities, and knowledge sharing within our technical community.</p>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="section story" id="story">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Story</h2>
+            </div>
+            <div class="story-content">
+                <h3>How It All Began</h3>
+                <p>Alumni Connect was born from a simple observation: despite having thousands of successful graduates, our institution lacked a centralized system to harness this powerful network. Students were missing valuable connections, and alumni had no structured way to give back to their alma mater.</p>
+                <p>In 2024, a team of passionate students and faculty members came together to solve this problem. We envisioned a platform that would transform the traditional alumni-student relationship from occasional interactions to a continuous, mutually beneficial partnership.</p>
+                <p>What started as a graduation project quickly evolved into something bigger—a comprehensive ecosystem that bridges generations of technical talent.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="section mission-vision" id="mission">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Mission & Vision</h2>
+            </div>
+            <div class="mission-box">
+                <h3><i class="fas fa-bullseye"></i> Mission</h3>
+                <p>Our mission is to foster meaningful connections between students and alumni, enabling mentorship, career growth, and a thriving technical community. We create pathways for knowledge transfer, professional development, and collaborative innovation across generations of graduates.</p>
+            </div>
+            <div class="mission-box">
+                <h3><i class="fas fa-eye"></i> Vision</h3>
+                <p>To create a dynamic, AI-driven network that strengthens the bond between past and present students, driving innovation and collaboration. We envision a future where every student has access to the collective wisdom of those who came before them, and every alumnus has the opportunity to shape the next generation of professionals.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Features & Benefits</h2>
+            </div>
+            <h3 class="text-center">Why Join Alumni Connect?</h3>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-address-book"></i>
+                    </div>
+                    <h3>Alumni Directory</h3>
+                    <p>Access our comprehensive database of graduates searchable by industry, location, graduation year, and expertise.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Mentorship Program</h3>
+                    <p>Connect with experienced professionals who can guide your academic and career journey through structured mentorship relationships.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Job & Internship Board</h3>
+                    <p>Discover exclusive opportunities shared directly by alumni working in leading companies across the industry.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Discussion Forums</h3>
+                    <p>Engage in meaningful conversations about industry trends, academic challenges, and professional growth in our moderated community spaces.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Events & Webinars</h3>
+                    <p>Stay connected through regular networking sessions, skill-building workshops, and industry panels—both virtual and in-person.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer Section -->
+    <footer>
+        <div class="complete-footer">
+            <div class="foot-logo">
+                <img src="logo.png" alt="srm logo">
+            </div>
+            <div class="foot-links">
+                <div class="link1">
+                    <div class="address">
+                        <h4>Main Campus</h4>
+                        <p>39, Rajiv Gandhi Education City,<br>
+                            Delhi-NCR,Sonepat-131029, Haryana (India)</p>
+                    </div>
+                    <div class="helplines">
+                        <h4>Admission helplines</h4>
+                        <p>+91-8816033301/02/03/04 <br>
+                            8816033306 (Whatsapp)</p>
+                    </div>
+                </div>
+                <div class="link2">
+                    <div class="Shortcuts">
+                        <h4>Shortcuts</h4>
+                        <a>Open Access E-Resources</a><br>
+                        <a>Academic Calendar</a><br>
+                        <a>Downloads</a><br>
+                        <a>Contacts</a>
+                    </div>
+                    <div class="social">
+                        <a href="https://www.youtube.com/@SRMUniversityDelhiNCR" title="YouTube"><i class="fa-brands fa-youtube yt" style="font-size: 20px;"></i></a>
+                        <a href="https://www.instagram.com/srmuniversitydelhincr/" title="Instagram"><i class="fa-brands fa-instagram ig" style="font-size: 20px;"></i></a>
+                        <a href="https://www.linkedin.com/school/srm-university-haryana/posts/?feedView=all" title="LinkedIn"><i class="fa-brands fa-linkedin in" style="font-size: 20px;"></i></a>
+                        <a href="https://www.facebook.com/SRMUniversityDelhiNCR/" title="Facebook"><i class="fa-brands fa-facebook fb" style="font-size: 20px;"></i></a>
+                    </div>
+                </div>
+                <div class="link3">
+                    <div class="Important-links">
+                        <h4>Important-links</h4>
+                        <a>Regulatory Approvals & Recognitions</a><br>
+                        <a>SRMU Statutory Bodies</a><br>
+                        <a>Anti-Ragging Policy</a><br>
+                        <a>Code of conduct</a><br>
+                        <a>Statutory Committees</a><br>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="foot-copyright">
+                <div class="copyright">
+                    Copyright © 2025 SRM University Delhi-NCR, Sonepat. All rights reserved.
+                </div>
+    
+                <div class="terms">
+                    <a>Terms and conditions |</a>
+                    <a>Privacy policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+   
+</body>
+</html>

@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Profile</title>
+    <link rel="icon" href="/Images/title-logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <div id="editModeAlert" class="edit-mode-container hidden">
+        <i class="fas fa-pencil-alt"></i> Edit mode enabled. Make your changes and click Save.
+    </div>
+
+    <div class="container">
+        <div class="header animate__animated animate__fadeIn">
+            <h1>Alumni Profile</h1>
+            <p>Manage your personal information and professional details</p>
+        </div>
+        
+        <div class="profile-container animate__animated animate__fadeInUp">
+            <div class="profile-sidebar">
+                <!-- Replace the existing profile-image div with this: -->
+            <div class="profile-image">
+                <img id="profileImage" src="Profile-PNG-Photo.png" alt="Profile Picture">
+                <div class="image-upload-container">
+                    <label for="uploadImage" class="upload-label"><i class="fas fa-camera"></i> Choose Image</label>
+                    <input type="file" id="uploadImage" accept="image/*">
+                    <button id="updateImageBtn" class="btn btn-primary hidden">Update Image</button>
+                </div>
+            </div>
+                
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" id="graduationYearStat">-</div>
+                        <div class="stat-label">Grad Year</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="departmentStat">-</div>
+                        <div class="stat-label">Dept</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="locationStat">-</div>
+                        <div class="stat-label">Loc</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="profile-content">
+                <form id="profileForm">
+                    <div class="form-section">
+                        <div class="section-header">
+                            <h2 class="section-title"><i class="fas fa-user"></i> Basic Information</h2>
+                            <button type="button" class="edit-btn" data-section="basicInfo">
+                                <i class="fas fa-pen"></i> Edit
+                            </button>
+                        </div>
+                        
+                        <div class="form-fields">
+                            <div class="form-group required">
+                                <label for="username">Username</label>
+                                <input type="text" id="username" name="username" disabled required>
+                                <small>Your username cannot be changed.</small>
+                            </div>
+                            
+                            <div class="form-group required">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" disabled required>
+                                <small>Your primary contact email address.</small>
+                            </div>
+                            
+                            <div class="form-group required">
+                                <label for="first_name">First Name</label>
+                                <input type="text" id="first_name" name="first_name" disabled required maxlength="255">
+                                <small>Your first name as it will appear to other alumni.</small>
+                            </div>
+                            
+                            <div class="form-group required">
+                                <label for="last_name">Last Name</label>
+                                <input type="text" id="last_name" name="last_name" disabled required maxlength="255">
+                                <small>Your last name as it will appear to other alumni.</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <div class="section-header">
+                            <h2 class="section-title"><i class="fas fa-briefcase"></i> Professional Information</h2>
+                            <button type="button" class="edit-btn" data-section="professional">
+                                <i class="fas fa-pen"></i> Edit
+                            </button>
+                        </div>
+                        
+                        <div class="form-fields">
+                            <div class="form-group required">
+                                <label for="graduation_year">Graduation Year</label>
+                                <input type="number" id="graduation_year" name="graduation_year" disabled min="-2147483648" max="2147483647" required>
+                                <small>Required. The year you graduated.</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="current_company">Current Company</label>
+                                <input type="text" id="current_company" name="current_company" disabled maxlength="255">
+                                <small>Maximum 255 characters.</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="job_title">Job Title</label>
+                                <input type="text" id="job_title" name="job_title" disabled maxlength="255">
+                                <small>Maximum 255 characters.</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="department">Department</label>
+                                <input type="text" id="department" name="department" disabled maxlength="255">
+                                <small>Maximum 255 characters.</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="location">Location</label>
+                                <input type="text" id="location" name="location" disabled maxlength="255">
+                                <small>Maximum 255 characters.</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="linkedin_url">LinkedIn URL</label>
+                                <input type="url" id="linkedin_url" name="linkedin_url" disabled maxlength="200">
+                                <small>Maximum 200 characters.</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <div class="section-header">
+                            <h2 class="section-title"><i class="fas fa-comment-alt"></i> About Me</h2>
+                            <button type="button" class="edit-btn" data-section="about">
+                                <i class="fas fa-pen"></i> Edit
+                            </button>
+                        </div>
+                        
+                        <div class="form-fields">
+                            <div class="form-group">
+                                <label for="bio">Bio</label>
+                                <textarea id="bio" name="bio" disabled></textarea>
+                                <small>Share a bit about yourself with fellow alumni.</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="buttons-container">
+                        <button type="button" id="cancelBtn" class="cancel-btn hidden">Cancel</button>
+                        <button type="submit" id="saveBtn" class="save-btn hidden">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div id="toast" class="toast">Changes saved successfully!</div>
+    
+    
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize
+            loadUserProfile();
+            
+            // Image upload preview
+            const uploadImage = document.getElementById('uploadImage');
+            const profileImage = document.getElementById('profileImage');
+            const updateImageBtn = document.getElementById('updateImageBtn'); // Add this button to your HTML
+            
+            uploadImage.addEventListener('change', function(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        profileImage.src = e.target.result;
+                        // Show update image button when a new image is selected
+                        if (updateImageBtn) {
+                            updateImageBtn.classList.remove('hidden');
+                        }
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+            
+            // Add event listener for Update Image button
+            if (updateImageBtn) {
+                updateImageBtn.addEventListener('click', function() {
+                    uploadProfilePicture();
+                });
+            }
+            
+            // Edit buttons functionality
+            const editButtons = document.querySelectorAll('.edit-btn');
+            const cancelBtn = document.getElementById('cancelBtn');
+            const saveBtn = document.getElementById('saveBtn');
+            const editModeAlert = document.getElementById('editModeAlert');
+            
+            editButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const section = this.getAttribute('data-section');
+                    enableEditMode(section);
+                    cancelBtn.classList.remove('hidden');
+                    saveBtn.classList.remove('hidden');
+                    editModeAlert.classList.remove('hidden');
+                });
+            });
+            
+            // Cancel button
+            cancelBtn.addEventListener('click', function() {
+                disableEditMode();
+                loadUserProfile(); // Reload the profile data
+                cancelBtn.classList.add('hidden');
+                saveBtn.classList.add('hidden');
+                editModeAlert.classList.add('hidden');
+                
+                // Hide update image button if visible
+                if (updateImageBtn) {
+                    updateImageBtn.classList.add('hidden');
+                }
+            });
+            
+            // Form submission
+            const profileForm = document.getElementById('profileForm');
+            
+            profileForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                if (validateForm()) {
+                    // Collect form data
+                    const formData = {
+                        user_details: {
+                            username: document.getElementById('username').value,
+                            email: document.getElementById('email').value
+                        },
+                        first_name: document.getElementById('first_name').value,
+                        last_name: document.getElementById('last_name').value,
+                        graduation_year: parseInt(document.getElementById('graduation_year').value),
+                        current_company: document.getElementById('current_company').value || null,
+                        job_title: document.getElementById('job_title').value || null,
+                        bio: document.getElementById('bio').value || null,
+                        department: document.getElementById('department').value || null,
+                        location: document.getElementById('location').value || null,
+                        linkedin_url: document.getElementById('linkedin_url').value || null
+                    };
+                    
+                    // Check if there's a new image to upload along with profile data
+                    const uploadInput = document.getElementById('uploadImage');
+                    
+                    if (uploadInput.files && uploadInput.files[0]) {
+                        // Upload both image and profile data
+                        uploadProfilePictureAndData(uploadInput.files[0], formData);
+                    } else {
+                        // Only update profile data
+                        updateProfileData(formData);
+                    }
+                    
+                    // Reset the form to non-edit mode
+                    disableEditMode();
+                    cancelBtn.classList.add('hidden');
+                    saveBtn.classList.add('hidden');
+                    editModeAlert.classList.add('hidden');
+                    
+                    // Hide update image button if visible
+                    if (updateImageBtn) {
+                        updateImageBtn.classList.add('hidden');
+                    }
+                }
+            });
+            
+            // Helper functions
+            function loadUserProfile() {
+                const token = localStorage.getItem('access_token');
+                
+                if (!token) {
+                    showToast('Please log in to view your profile', 'error');
+                    // Redirect to login page
+                    // window.location.href = '/login';
+                    return;
+                }
+                
+                fetch('http://51.20.139.242/alumni/profile/', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch profile');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    populateForm(data);
+                    updateProfileStats(data);
+                    
+                    // Update profile picture if available
+                    if (data.profile_picture && data.profile_picture !== "../Profile_Demo/Profile-PNG-Photo.png") {
+                        profileImage.src = data.profile_picture;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading profile:', error);
+                    showToast('Failed to load profile data', 'error');
+                    
+                    // For demonstration, use sample data if API fails
+                    const sampleData = {
+                        id: 0,
+                        user: 0,
+                        user_details: {
+                            id: 0,
+                            username: "user123",
+                            email: "user@example.com",
+                            full_name: "John Doe"
+                        },
+                        graduation_year: 2018,
+                        current_company: "Tech Solutions Inc.",
+                        job_title: "Senior Developer",
+                        bio: "Passionate developer with over 5 years of experience in web technologies.",
+                        department: "Computer Science",
+                        location: "New York",
+                        linkedin_url: "http://example.com",
+                        profile_picture: "http://example.com"
+                    };
+                    
+                    populateForm(sampleData);
+                    updateProfileStats(sampleData);
+                });
+            }
+    
+            // Function to upload profile picture independently
+            function uploadProfilePicture() {
+                const token = localStorage.getItem('access_token');
+                const uploadInput = document.getElementById('uploadImage');
+                
+                if (!token) {
+                    showToast('Please log in to upload your profile picture', 'error');
+                    return;
+                }
+                
+                if (!uploadInput.files || !uploadInput.files[0]) {
+                    showToast('Please select an image to upload', 'error');
+                    return;
+                }
+                
+                // Create FormData for the image upload
+                const imageFormData = new FormData();
+                imageFormData.append('profile_picture', uploadInput.files[0]);
+                
+                // Show loading spinner or indicator
+                showToast('Uploading image...', 'info');
+                
+                // Upload the image
+                fetch('http://51.20.139.242/alumni/profile/', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                        // Don't set Content-Type when using FormData
+                    },
+                    body: imageFormData
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to upload profile image');
+                    }
+                    return response.json();
+                })
+                .then(imageData => {
+                    showToast('Profile picture updated successfully!');
+                    // If image URL is returned, update the profile image
+                    if (imageData.profile_picture) {
+                        profileImage.src = imageData.profile_picture;
+                    }
+                    
+                    // Hide update image button
+                    if (updateImageBtn) {
+                        updateImageBtn.classList.add('hidden');
+                    }
+                    
+                    // Clear the file input
+                    uploadInput.value = '';
+                })
+                .catch(error => {
+                    console.error('Error uploading image:', error);
+                    showToast('Failed to upload profile image', 'error');
+                });
+            }
+            
+            // Function to upload profile picture and update profile data together
+            function uploadProfilePictureAndData(imageFile, profileData) {
+                const token = localStorage.getItem('access_token');
+                
+                if (!token) {
+                    showToast('Please log in to update your profile', 'error');
+                    return;
+                }
+                
+                // Create FormData for the image upload
+                const imageFormData = new FormData();
+                imageFormData.append('profile_picture', imageFile);
+                
+                // Show loading state
+                showToast('Updating profile...', 'info');
+                
+                // Upload the image first
+                fetch('http://51.20.139.242/alumni/profile/', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: imageFormData
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to upload profile image');
+                    }
+                    return response.json();
+                })
+                .then(imageData => {
+                    // Continue with profile data update, including the new image URL
+                    if (imageData.profile_picture) {
+                        profileData.profile_picture = imageData.profile_picture;
+                    }
+                    return updateProfileData(profileData);
+                })
+                .catch(error => {
+                    console.error('Error during profile update:', error);
+                    showToast('Failed to update profile completely', 'error');
+                });
+            }
+            
+            // Function to update profile data only
+            function updateProfileData(data) {
+                const token = localStorage.getItem('access_token');
+                
+                if (!token) {
+                    showToast('Please log in to update your profile', 'error');
+                    return Promise.reject('No token available');
+                }
+                
+                // Send the profile data as JSON
+                return fetch('http://51.20.139.242/alumni/profile/', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to update profile');
+                    }
+                    return response.json();
+                })
+                .then(updatedData => {
+                    showToast('Profile updated successfully!');
+                    populateForm(updatedData);
+                    updateProfileStats(updatedData);
+                    return updatedData;
+                })
+                .catch(error => {
+                    console.error('Error saving profile:', error);
+                    showToast('Failed to save profile data', 'error');
+                    throw error;
+                });
+            }
+            
+            function populateForm(data) {
+                // Basic information
+                if (data.user_details) {
+                    document.getElementById('username').value = data.user_details.username || '';
+                    document.getElementById('email').value = data.user_details.email || '';
+                }
+                
+                // Name fields
+                document.getElementById('first_name').value = data.first_name || '';
+                document.getElementById('last_name').value = data.last_name || '';
+                
+                // Professional information
+                document.getElementById('graduation_year').value = data.graduation_year || '';
+                document.getElementById('current_company').value = data.current_company || '';
+                document.getElementById('job_title').value = data.job_title || '';
+                document.getElementById('department').value = data.department || '';
+                document.getElementById('location').value = data.location || '';
+                document.getElementById('linkedin_url').value = data.linkedin_url || '';
+                
+                // About
+                document.getElementById('bio').value = data.bio || '';
+            }
+            
+            function updateProfileStats(data) {
+                document.getElementById('graduationYearStat').textContent = data.graduation_year || '-';
+                document.getElementById('departmentStat').textContent = data.department ? data.department.substring(0, 10) + (data.department.length > 10 ? '...' : '') : '-';
+                document.getElementById('locationStat').textContent = data.location ? data.location.substring(0, 10) + (data.location.length > 10 ? '...' : '') : '-';
+            }
+            
+            function enableEditMode(section) {
+                let fieldsContainer;
+    
+                switch(section) {
+                    case 'basicInfo':
+                        fieldsContainer = document.querySelector('[data-section="basicInfo"]').closest('.form-section').querySelector('.form-fields');
+                        // Username and email shouldn't be editable as per API
+                        const usernameField = document.getElementById('username');
+                        if (usernameField) {
+                            usernameField.disabled = true;
+                        }
+                        
+                        const emailField = document.getElementById('email');
+                        if (emailField) {
+                            emailField.disabled = true;
+                        }
+                        break;
+                    case 'professional':
+                        fieldsContainer = document.querySelector('[data-section="professional"]').closest('.form-section').querySelector('.form-fields');
+                        break;
+                    case 'about':
+                        fieldsContainer = document.querySelector('[data-section="about"]').closest('.form-section').querySelector('.form-fields');
+                        break;
+                }
+                
+                if (fieldsContainer) {
+                    const inputs = fieldsContainer.querySelectorAll('input:not(#username):not(#email), select, textarea');
+                    inputs.forEach(input => {
+                        input.disabled = false;
+                    });
+                }
+            }
+            
+            function disableEditMode() {
+                const allInputs = document.querySelectorAll('input, select, textarea');
+                allInputs.forEach(input => {
+                    input.disabled = true;
+                    input.classList.remove('error');
+                    const smallEl = input.nextElementSibling;
+                    if (smallEl && smallEl.tagName === 'SMALL') {
+                        smallEl.textContent = input.getAttribute('data-help-text') || '';
+                    }
+                });
+            }
+            
+            function validateForm() {
+                const inputs = document.querySelectorAll('input:not([disabled]), select:not([disabled]), textarea:not([disabled])');
+                let isValid = true;
+                
+                inputs.forEach(input => {
+                    // Reset previous error state
+                    input.classList.remove('error');
+                    const formGroup = input.closest('.form-group');
+                    if (formGroup) {
+                        formGroup.classList.remove('error');
+                    }
+                    
+                    // Check required fields
+                    if (input.hasAttribute('required') && !input.value.trim()) {
+                        markAsError(input, 'This field is required');
+                        isValid = false;
+                        return;
+                    }
+                    
+                    // Check email
+                    if (input.type === 'email' && input.value.trim()) {
+                        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        if (!emailPattern.test(input.value)) {
+                            markAsError(input, 'Invalid email format');
+                            isValid = false;
+                            return;
+                        }
+                    }
+                    
+                    // Check URL
+                    if (input.type === 'url' && input.value.trim()) {
+                        try {
+                            new URL(input.value);
+                        } catch (e) {
+                            markAsError(input, 'Invalid URL format');
+                            isValid = false;
+                            return;
+                        }
+                    }
+                    
+                    // Check graduation year range
+                    if (input.id === 'graduation_year' && input.value.trim()) {
+                        const year = parseInt(input.value);
+                        if (isNaN(year) || year < -2147483648 || year > 2147483647) {
+                            markAsError(input, 'Graduation year out of valid range');
+                            isValid = false;
+                            return;
+                        }
+                    }
+                    
+                    // Check max length
+                    if (input.hasAttribute('maxlength') && input.value.trim()) {
+                        const maxLength = parseInt(input.getAttribute('maxlength'));
+                        if (input.value.length > maxLength) {
+                            markAsError(input, `Maximum length is ${maxLength} characters`);
+                            isValid = false;
+                            return;
+                        }
+                    }
+                });
+                
+                return isValid;
+            }
+            
+            function markAsError(input, message) {
+                input.classList.add('error');
+                const formGroup = input.closest('.form-group');
+                if (formGroup) {
+                    formGroup.classList.add('error');
+                    const smallEl = formGroup.querySelector('small');
+                    if (smallEl) {
+                        // Store original help text if not already stored
+                        if (!input.hasAttribute('data-help-text')) {
+                            input.setAttribute('data-help-text', smallEl.textContent);  
+                        }
+                        smallEl.textContent = message;
+                    }
+                }
+            }
+            
+            function showToast(message, type = 'success') {
+                const toast = document.getElementById('toast');
+                toast.textContent = message;
+                toast.className = 'toast';
+                if (type === 'error') {
+                    toast.classList.add('toast-error');
+                } else if (type === 'info') {
+                    toast.classList.add('toast-info');
+                }
+                toast.classList.add('show');
+                
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>

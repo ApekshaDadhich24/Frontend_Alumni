@@ -1,0 +1,917 @@
+/* navbar code starts here  */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.footer-top a,
+.hero a,
+.alumni-card a,
+.complete-footer a,
+#notable-alumni a {
+    text-decoration: none !important;
+    color: white !important;
+}
+
+.footer-top a:hover,
+.hero a:hover,
+.alumni-card a:hover,
+.complete-footer a:hover,
+#notable-alumni a:hover {
+    color: #FAA831 !important;
+}
+
+
+.custom-gradient {
+    background: linear-gradient(to right, #0A3278, #1E4A9D);
+}
+
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh; 
+    overflow: hidden;
+}
+
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 0;
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 1;
+    width: 90%; 
+    max-width: 1200px; 
+    padding: 20px;
+}
+
+.content h1 {
+    margin-bottom: 20px;
+    font-size: 3rem;
+}
+
+.content p {
+    font-size: 1.2rem !important; 
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .content h1 {
+        font-size: 2.2rem;
+    }
+    
+    .content p {
+        font-size: 1rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: 80vh; 
+    }
+    
+    .content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .content p {
+        font-size: 0.9rem !important;
+    }
+}
+
+.background-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* notable-alumnis code starts here*/
+/* Notable Alumni Section */
+#notable-alumni {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    scroll-margin-top: 80px;
+}
+
+/* Alumni Heading Styles */
+.alumni-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.alumni-heading h3 {
+    color: #000;
+    font-family: Lora;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 125%;
+}
+
+.alumni-heading p {
+    color: #000;
+    font-family: Inter;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%;
+    letter-spacing: -0.22px;
+    text-align: center;
+}
+
+/* Grid Layout */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cards-grid-expanded {
+    display: none; /* Hidden by default */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto 0;
+    position: relative;
+}
+
+/* Alumni Card Styles */
+.alumni-card {
+    width: 100%;
+    max-width: 364px;
+    height: auto;
+    border-radius: 30px;
+    padding: 10px;
+    background: #F1F1F1;
+    transition: background 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 0 auto;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.alumni-card:hover {
+    background: #305DAA;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.alumni-card:hover .alumni-name,
+.alumni-card:hover .alumni-batch,
+.alumni-card:hover .alumni-role,
+.alumni-card:hover .alumni-company,
+.alumni-card:hover .social-icon {
+    color: white;
+}
+
+.alumni-card:hover .alumni-info {
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.alumni-image {
+    width: 243px;
+    height: 243px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+}
+
+.alumni-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.alumni-info {
+    border-top: 1px solid rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.alumni-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1e3a6e;
+    margin-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.alumni-batch {
+    color: #f06c1f;
+    font-weight: 500;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.alumni-role {
+    color: #555;
+    margin-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.alumni-company {
+    color: #777;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.alumni-social {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icon {
+    width: 30px;
+    height: 30px;
+    background-color: #0A3278;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.alumni-card:hover .social-icon {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Button Styles */
+.Alumni {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label.read-more-btn,
+label.show-less-btn {
+    display: inline-flex;
+    padding: 16px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 6px;
+    background: #F16136;
+    color: white;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+label.show-less-btn {
+    display: none;
+    grid-column: 1 / -1;
+    width: fit-content;
+    margin-top: 30px;
+    justify-self: center;
+}
+
+/* Show/Hide Functionality */
+#ch:checked ~ .cards-grid-expanded {
+    display: grid;
+}
+
+#ch:checked ~ .read-more-btn {
+    display: none;
+}
+
+#ch:checked ~ .cards-grid-expanded .show-less-btn {
+    display: inline-flex;
+}
+
+/* Responsive Styles */
+/* Medium Screen / Tablet (2 columns) */
+@media screen and (max-width: 992px) {
+    .cards-grid, 
+    .cards-grid-expanded {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        width: 90%;
+    }
+    
+    .alumni-heading h3 {
+        font-size: 32px;
+    }
+    
+    .alumni-heading p {
+        font-size: 18px;
+    }
+    
+    .alumni-image {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .alumni-card {
+        padding: 10px;
+    }
+}
+
+/* Small Screen / Mobile (1 column) */
+@media screen and (max-width: 576px) {
+    .cards-grid, 
+    .cards-grid-expanded {
+        grid-template-columns: 1fr;
+        width: 90%;
+    }
+    
+    #notable-alumni {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    
+    .alumni-heading {
+        margin-bottom: 30px;
+    }
+    
+    .alumni-heading h3 {
+        font-size: 28px;
+    }
+    
+    .alumni-heading p {
+        font-size: 16px;
+        padding: 0 15px;
+    }
+    
+    .alumni-card {
+        max-width: 320px;
+    }
+    
+    /* Hide read more button on mobile */
+    label.read-more-btn {
+        display: none;
+    }
+    
+    /* Hide expanded cards on mobile - they should never be visible */
+    .cards-grid-expanded {
+        display: none !important;
+    }
+}
+
+/* Extra Small Mobile */
+@media screen and (max-width: 400px) {
+    .alumni-image {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .alumni-card {
+        padding: 10px;
+    }
+}
+/* filter alumni code starts here  */
+.alm-section-title {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.alm-section-title h2 {
+    font-family: sans-serif;
+    font-size: 2rem;
+    color: #1e3a6e;
+    font-weight: 600;
+    margin: 0;
+}
+.alm-archive-container {
+    font-family: sans-serif;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.alm-filter-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+}
+
+.alm-filter-section h3 {
+    margin-bottom: 15px;
+    color: #1e3a6e;
+}
+
+.alm-filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.alm-filter-item {
+    flex: 1;
+    min-width: 200px;
+}
+
+.alm-filter-item label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #555;
+}
+
+.alm-filter-item select, .alm-filter-item input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.alm-filter-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.alm-filter-buttons button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.alm-reset-btn {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    color: #555;
+}
+
+.alm-apply-btn {
+    background-color: #1e3a6e;
+    border: 1px solid #1e3a6e;
+    color: white;
+}
+
+.alm-alumni-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.alm-alumni-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.alm-alumni-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.alm-alumni-image {
+    height: 180px;
+    overflow: hidden;
+}
+
+.alm-alumni-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.alm-alumni-info {
+    padding: 15px;
+}
+
+.alm-alumni-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1e3a6e;
+    margin-bottom: 5px;
+}
+
+.alm-alumni-batch {
+    color: white;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.alm-alumni-role {
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.alm-alumni-company {
+    color: #777;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.alm-alumni-social {
+    display: flex;
+    gap: 10px;
+}
+
+.alm-social-icon {
+    width: 30px;
+    height: 30px;
+    background-color: #0A3278;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    transition: background-color 0.3s;
+}
+
+.alm-social-icon:hover {
+    background-color: #dce8f8;
+}
+
+.alm-pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 5px;
+}
+
+.alm-page-item {
+    width: 35px;
+    height: 35px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: white;
+}
+
+.alm-page-item.active {
+    background-color: #1e3a6e;
+    color: white;
+    border-color: #1e3a6e;
+}
+
+.alm-page-item:hover:not(.active) {
+    background-color: #f5f5f5;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .alm-header {
+        padding: 15px 20px;
+        flex-direction: column;
+    }
+    
+    .alm-nav-links {
+        margin: 15px 0;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .alm-footer-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .alm-footer-links {
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+    
+    .alm-filter-row {
+        flex-direction: column;
+    }
+}
+/* footer code starts here */
+
+.complete-footer {
+    width: 100%;
+    height: 1100px;
+    position: relative;
+    overflow: hidden;
+    color: white;
+}
+
+.complete-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(270deg, rgba(0, 0, 0, 0.14) 0%, rgba(0, 0, 0, 0.14) 100%), 
+                linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 100%) 60.59%, #000 100%);
+    z-index: 1;
+}
+
+.complete-footer::after {
+    content: "";
+    position: absolute;
+    top: -800px; 
+    left: 0;
+    width: 100%;
+    height: 150%;
+    background: url('footer1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+.foot-logo {
+    height: 100px;
+    width: 460px;
+    position: relative;
+    top: 500px;
+    left: 130px;
+    z-index: 3;
+}
+
+.foot-logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+.foot-links {
+    height: 300px;
+    width: 1000px;
+    position: relative;
+    top: 550px;
+    left: 145px;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 100px;
+}
+
+h4 {
+    margin-bottom: 10px;
+}
+
+.link1 {
+    height: 250px;
+    width: 310px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    flex: 1 0 0;
+}
+
+.address {
+    height: 150px;
+}
+
+.helplines {
+    height: 90px;
+}
+
+.link2 {
+    height: 250px;
+    width: 310px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1 0 0;
+    align-self: stretch;
+    gap: 10px;
+}
+
+.link3 {
+    height: 250px;
+    width: 310px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1 0 0;
+}
+
+.social {
+    width: 200px;
+    height: 30px;
+    color: black;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.social i {
+    color: grey;
+}
+
+.fb:hover {
+    color: #3D5A98;
+    transition: 0.2s ease-in-out;
+}
+.in:hover {
+    color: #0A66C2;
+    transition: 0.2s ease-in-out;
+}
+.yt:hover {
+    color: #FF0000;
+    transition: 0.2s ease-in-out;
+}
+
+.ig {
+    color: gray; 
+    transition: all 0.3s ease-in-out;
+}
+
+.ig:hover {
+    background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.foot-copyright {
+    height: 70px;
+    width: 100%;
+    border-top: 1px solid white;
+    padding: 0px 145px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+}
+
+.copyright {
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.terms {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+@media screen and (max-width: 1200px) {
+    .foot-links {
+        width: 90%;
+        left: 5%;
+        gap: 50px;
+    }
+    
+    .foot-logo {
+        left: 5%;
+        width: 400px;
+    }
+    
+    .foot-copyright {
+        padding: 0 5%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .foot-links {
+        flex-wrap: wrap;
+        height: auto;
+        top: 450px;
+        gap: 40px;
+    }
+    
+    .foot-logo {
+        top: 400px;
+        width: 350px;
+    }
+    
+    .link1, .link2, .link3 {
+        width: 45%;
+    }
+    
+    .complete-footer {
+        height: 1200px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .foot-links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+        top: 400px;
+    }
+    
+    .foot-logo {
+        top: 350px;
+        width: 300px;
+    }
+    
+    .link1, .link2, .link3 {
+        width: 100%;
+        height: auto;
+    }
+    
+    .complete-footer {
+        height: 1400px;
+    }
+    
+    .complete-footer::after {
+        top: -600px;
+    }
+    
+    .foot-copyright {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 5%;
+    }
+    
+    .copyright, .terms {
+        height: auto;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .foot-logo {
+        width: 90%;
+        left: 5%;
+        top: 300px;
+    }
+    
+    .foot-links {
+        top: 350px;
+    }
+    
+    h4 {
+        font-size: 16px;
+    }
+    
+    p, a {
+        font-size: 14px;
+    }
+    
+    .social {
+        width: 160px;
+    }
+    
+    .social i {
+        font-size: 18px !important;
+    }
+    
+    .complete-footer {
+        height: 1350px;
+    }
+    
+    .complete-footer::after {
+        top: -500px;
+    }
+    
+    .terms {
+        gap: 10px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .complete-footer {
+        height: 1300px;
+    }
+    
+    .complete-footer::after {
+        top: -400px;
+    }
+    
+    .foot-logo {
+        top: 250px;
+    }
+    
+    .foot-links {
+        top: 300px;
+    }
+}
+/* footer code ends here */
