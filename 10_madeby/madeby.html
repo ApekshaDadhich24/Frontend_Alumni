@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team - SRM University Sinapati Delhi-NCR Alumni Network</title>
+    <style>
+        :root {
+            --primary-color: #0A3278; /* Navy Blue */
+            --secondary-color: #F06C1F; /* Orange */
+            --accent-color: #3498db; /* Light Blue */
+            --white: #FFFFFF;
+            --light-bg: #f7f9fc;
+            --text-dark: #333333;
+            --card-shadow: 0 10px 20px rgba(10, 50, 120, 0.12), 0 4px 8px rgba(10, 50, 120, 0.06);
+            --hover-shadow: 0 15px 30px rgba(10, 50, 120, 0.2), 0 8px 15px rgba(10, 50, 120, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        nav {
+            background-color: var(--primary-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 100;
+        }
+        
+        .logo-container {
+            height: 120px;
+            width: 350px;
+            background-color: var(--primary-color);
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        
+        .logo-image-container {
+            height: 70px;
+            width: 100%;
+            max-width: 415px;
+            padding: 0 16px;
+        }
+        
+        .logo-image-container img {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+        }
+        
+        .page-title {
+            color: var(--white);
+            font-size: 24px;
+            font-weight: bold;
+            padding: 0 20px;
+            text-align: center;
+            flex-grow: 1;
+        }
+        
+        .home-button {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-right: 20px;
+        }
+        
+        .home-button:hover {
+            background-color: #d45500;
+            transform: translateY(-2px);
+        }
+        
+        .team-header {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a56c4 100%);
+            color: var(--white);
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .team-header::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="5" fill="%231a56c4" opacity="0.15"/></svg>') repeat;
+            z-index: 0;
+            animation: animateBackground 30s linear infinite;
+        }
+        
+        @keyframes animateBackground {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-100px); }
+        }
+        
+        .team-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .team-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .team-member {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 350px;
+            padding-top: 30px;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--hover-shadow);
+        }
+        
+        .member-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: -15px auto 15px; /* Adjusted margin to be more visible */
+            position: relative;
+            border: 4px solid var(--white);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 10;
+            top: -20px; /* Added top positioning to move avatar down */
+        }
+        
+        .member-info {
+            padding: 0 20px 20px;
+            position: relative;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            margin-top: -10px; /* Added negative margin to pull content up */
+        }
+        
+        .member-role {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(240, 108, 31, 0.3);
+            display: inline-block;
+            margin: 5px auto 10px;
+        }
+        
+        .team-lead-role {
+            background: linear-gradient(90deg, var(--secondary-color), #FF9500);
+        }
+        
+        .tech-lead-role {
+            background: linear-gradient(90deg, var(--secondary-color), #FF9500);
+        }
+        
+        .member-name {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .member-description {
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            line-height: 1.5;
+            flex-grow: 1;
+            overflow: auto;
+            font-size: 1rem;
+            padding: 0 10px;
+        }
+        
+        .highlight {
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+        
+        /* Special styling for Team Lead - keeping border but using same background color */
+        .team-lead {
+            border: 2px solid var(--secondary-color);
+            background-color: var(--white);
+        }
+        
+        /* Special styling for Tech Lead - keeping border but using same background color */
+        .tech-lead {
+            border: 2px solid var(--secondary-color);
+            background-color: var(--white);
+        }
+        
+        .animated-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: 0;
+        }
+        
+        .shape {
+            position: absolute;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .shape1 {
+            border-radius: 50%;
+            width: 400px;
+            height: 400px;
+            background-color: var(--secondary-color);
+            top: -200px;
+            left: -200px;
+        }
+        
+        .shape2 {
+            border-radius: 50%;
+            width: 300px;
+            height: 300px;
+            background-color: var(--accent-color);
+            bottom: -150px;
+            right: -100px;
+        }
+        
+        .technologies {
+            text-align: center;
+            padding: 40px 0;
+            background-color: var(--white);
+            margin: 40px 0;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .technologies h2 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+        
+        .tech-icons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .tech-icon {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .tech-icon:hover {
+            transform: translateY(-10px);
+        }
+        
+        .tech-icon i {
+            font-size: 40px;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .tech-icon span {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer-content {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .footer-links {
+            margin-top: 15px;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .footer-shape {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.05);
+            z-index: 1;
+        }
+        
+        .footer-shape-1 {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            top: -150px;
+            left: -100px;
+        }
+        
+        .footer-shape-2 {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            bottom: -100px;
+            right: 50px;
+        }
+        
+        .card-decoration {
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            width: 100%;
+        }
+
+        /* Special decorations for Team Lead and Tech Lead */
+        .team-lead .card-decoration {
+            height: 6px;
+            background: linear-gradient(90deg, var(--secondary-color), #FF9500);
+        }
+        
+        .tech-lead .card-decoration {
+            height: 6px;
+              background: linear-gradient(90deg, var(--secondary-color), #FF9500);
+        }
+        
+        @media (max-width: 992px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                padding: 0;
+            }
+            
+            .logo-container {
+                width: 100%;
+                height: 100px;
+                justify-content: center;
+            }
+            
+            .page-title {
+                padding: 15px 0;
+            }
+            
+            .home-button {
+                margin: 10px 0 15px 0;
+            }
+            
+            .team-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="logo-container">
+            <div class="logo-image-container">
+                <img src="../Images/logo.png" alt="SRM logo" />
+            </div>
+        </div>
+      
+        <a href="../1_HomePage/homePage.html" class="home-button">Back to Home</a>
+    </nav>
+    
+    <div class="team-header">
+        <div class="animated-bg">
+            <div class="shape shape1"></div>
+            <div class="shape shape2"></div>
+        </div>
+        <div class="container">
+            <h1>The Minds Behind SRM Alumni Network</h1>
+            <p>Meet our talented team of developers who worked hard to create this platform for the SRM alumni community.</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="team-grid">
+            <!-- Team Lead -->
+            <div class="team-member team-lead">
+                <div class="card-decoration"></div>
+                <div class="member-avatar">AD</div>
+                <div class="member-info">
+                    <div class="member-role team-lead-role">Team Lead</div>
+                    <h3 class="member-name">Apeksha Dadhich</h3>
+                    <p class="member-description">
+                        Frontend Developer with a creative vision who guides the team with clarity and purpose, ensuring alignment with project goals and user experience.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Tech Lead -->
+            <div class="team-member tech-lead">
+                <div class="card-decoration"></div>
+                <div class="member-avatar">OT</div>
+                <div class="member-info">
+                    <div class="member-role tech-lead-role">Tech Lead</div>
+                    <h3 class="member-name">Ojashwa Tripathi</h3>
+                    <p class="member-description">
+                        Backend developer with expertise in Spring Boot. Helps solve doubts across frontend, backend, databases, and APIs.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Backend Developer -->
+            <div class="team-member">
+                <div class="card-decoration"></div>
+                <div class="member-avatar">KS</div>
+                <div class="member-info">
+                    <div class="member-role">Backend Developer</div>
+                    <h3 class="member-name">Krishna Singh</h3>
+                    <p class="member-description">
+                        Dedicated backend developer with Django. Intelligent, consistent, and brings robust backend solutions and database architecture.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- UI/UX Developer -->
+            <div class="team-member">
+                <div class="card-decoration"></div>
+                <div class="member-avatar">DS</div>
+                <div class="member-info">
+                    <div class="member-role">UI/UX Designer</div>
+                    <h3 class="member-name">Deepanshu Sharma</h3>
+                    <p class="member-description">
+                        UI/UX and Frontend developer - disciplined, fast in action, and brings creative designs and user-friendly interfaces to life.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Backend Developer -->
+            <div class="team-member">
+                <div class="card-decoration"></div>
+                <div class="member-avatar">ZU</div>
+                <div class="member-info">
+                    <div class="member-role">Backend Developer</div>
+                    <h3 class="member-name">Zuveria</h3>
+                    <p class="member-description">
+                        Talented backend developer giving ideas, reliability and solutions to server-side logic and database management challenges.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Frontend Developer -->
+            <div class="team-member">
+                <div class="card-decoration"></div>
+                <div class="member-avatar">SU</div>
+                <div class="member-info">
+                    <div class="member-role">Frontend Developer</div>
+                    <h3 class="member-name">Sumit</h3>
+                    <p class="member-description">
+                        Frontend developer with a passion for creating responsive and interactive user interfaces using modern web technologies.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="technologies">
+            <h2>Technologies We Use</h2>
+            <p>Our team leverages a modern tech stack to deliver a seamless experience</p>
+            <div class="tech-icons">
+                <div class="tech-icon">
+                    <i class="fab fa-html5"></i>
+                    <span>HTML5</span>
+                </div>
+                <div class="tech-icon">
+                    <i class="fab fa-css3-alt"></i>
+                    <span>CSS3</span>
+                </div>
+                <div class="tech-icon">
+                    <i class="fab fa-js"></i>
+                    <span>JavaScript</span>
+                </div>
+                <div class="tech-icon">
+                    <i class="fab fa-java"></i>
+                    <span>Java</span>
+                </div>
+                <div class="tech-icon">
+                    <i class="fab fa-python"></i>
+                    <span>Python</span>
+                </div>
+                <div class="tech-icon">
+                    <i class="fas fa-database"></i>
+                    <span>Database</span>
+                </div>
+                <div class="tech-icon">
+                    <i class="fas fa-leaf"></i>
+                    <span>Spring Boot</span>
+                </div>
+                <div class="tech-icon">
+                    <i class="fab fa-bootstrap"></i>
+                    <span>Bootstrap</span>
+                </div>
+                <div class="tech-icon">
+                    <i class="fas fa-wind"></i>
+                    <span>Tailwind</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-shape footer-shape-1"></div>
+        <div class="footer-shape footer-shape-2"></div>
+        <div class="container footer-content">
+            <p>&copy; 2025 SRM University Delhi-NCR, Sonepat. All rights reserved.</p>
+         
+        </div>
+    </footer>
+    
+    <script>
+        // JavaScript for adding visual effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate the team members on scroll
+            const teamMembers = document.querySelectorAll('.team-member');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            teamMembers.forEach(member => {
+                member.style.opacity = 0;
+                member.style.transform = 'translateY(50px)';
+                member.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(member);
+            });
+            
+            // Interactive tech icons
+            const techIcons = document.querySelectorAll('.tech-icon');
+            techIcons.forEach(icon => {
+                icon.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px)';
+                });
+                
+                icon.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
