@@ -272,205 +272,233 @@
                 }
             });
             
+            
             // Helper functions
-            function loadUserProfile() {
-                const token = localStorage.getItem('access_token');
-                
-                if (!token) {
-                    showToast('Please log in to view your profile', 'error');
-                    // Redirect to login page
-                    // window.location.href = '/login';
+        function loadUserProfile() {
+            const token = localStorage.getItem('access_token');
+            
+            if (!token) {
+                showToast('Please log in to view your profile', 'error');
+                return;
+            }
+            
+            fetch('https://alumni.testproject.live/alumni/profile/', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch profile');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Profile data received:', data);
+                populateForm(data);
+                updateProfileStats(data);
+        
+                const profileImageElement = document.querySelector('.profile-picture') || document.getElementById('profileImage');
+        
+                if (!profileImageElement) {
+                    console.error('Profile image element not found');
                     return;
                 }
-                
-                fetch('http://51.20.139.242/alumni/profile/', {
-                    method: 'GET',
-                    headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
-                        'Accept': 'application/json'
+        
+                if (data && data.profile_picture) {
+                    console.log('Raw profile picture URL from API:', data.profile_picture);
+        
+                    let imageUrl = '';
+                    // Construct the full URL by prepending your API's base URL
+                    // const imageUrl = `http://51.20.139.242${data.profile_picture}`;
+        
+                    console.log('Attempting to load image from URL:', imageUrl);
+
+                    if (data.profile_picture.startsWith('/')) {
+                        imageUrl = `https://alumni.testproject.live${data.profile_picture}`;
+                    } else {
+                        imageUrl = `https://alumni.testproject.live/${data.profile_picture}`;
                     }
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Failed to fetch profile');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    populateForm(data);
-                    updateProfileStats(data);
-                    
-                    // Update profile picture if available
-                    if (data.profile_picture && data.profile_picture !== "../Profile_Demo/Profile-PNG-Photo.png") {
-                        profileImage.src = data.profile_picture;
-                    }
-                })
-                .catch(error => {
-                    console.error('Error loading profile:', error);
-                    showToast('Failed to load profile data', 'error');
-                    
-                    // For demonstration, use sample data if API fails
-                    const sampleData = {
-                        id: 0,
-                        user: 0,
-                        user_details: {
-                            id: 0,
-                            username: "user123",
-                            email: "user@example.com",
-                            full_name: "John Doe"
-                        },
-                        graduation_year: 2018,
-                        current_company: "Tech Solutions Inc.",
-                        job_title: "Senior Developer",
-                        bio: "Passionate developer with over 5 years of experience in web technologies.",
-                        department: "Computer Science",
-                        location: "New York",
-                        linkedin_url: "http://example.com",
-                        profile_picture: "http://example.com"
+        
+                    console.log('Attempting to load image from URL:', imageUrl);
+        
+                    // Test if the image URL is valid (optional but good for debugging)
+                    const testImage = new Image();
+                    testImage.onload = function() {
+                        console.log('Image loaded successfully, updating profile picture');
+                        profileImageElement.src = imageUrl;
                     };
-                    
-                    populateForm(sampleData);
-                    updateProfileStats(sampleData);
-                });
-            }
+                    testImage.onerror = function() {
+                        console.warn('Failed to load image from URL:', imageUrl);
+                        profileImageElement.src = 'Profile-PNG-Photo.png'; // Fallback image
+                    };
+                    testImage.src = imageUrl;
+                } else {
+                    console.log('No profile picture in response, using default');
+                    profileImageElement.src = 'Profile-PNG-Photo.png'; // Default if no URL
+                }
+            })
+            .catch(error => {
+                console.error('Error loading profile:', error);
+                showToast('Failed to load profile data', 'error');
+            });
+        }
     
             // Function to upload profile picture independently
-            function uploadProfilePicture() {
-                const token = localStorage.getItem('access_token');
-                const uploadInput = document.getElementById('uploadImage');
-                
-                if (!token) {
-                    showToast('Please log in to upload your profile picture', 'error');
-                    return;
-                }
-                
-                if (!uploadInput.files || !uploadInput.files[0]) {
-                    showToast('Please select an image to upload', 'error');
-                    return;
-                }
-                
-                // Create FormData for the image upload
-                const imageFormData = new FormData();
-                imageFormData.append('profile_picture', uploadInput.files[0]);
-                
-                // Show loading spinner or indicator
-                showToast('Uploading image...', 'info');
-                
-                // Upload the image
-                fetch('http://51.20.139.242/alumni/profile/', {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                        // Don't set Content-Type when using FormData
-                    },
-                    body: imageFormData
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Failed to upload profile image');
-                    }
-                    return response.json();
-                })
-                .then(imageData => {
-                    showToast('Profile picture updated successfully!');
-                    // If image URL is returned, update the profile image
-                    if (imageData.profile_picture) {
-                        profileImage.src = imageData.profile_picture;
-                    }
-                    
-                    // Hide update image button
-                    if (updateImageBtn) {
-                        updateImageBtn.classList.add('hidden');
-                    }
-                    
-                    // Clear the file input
-                    uploadInput.value = '';
-                })
-                .catch(error => {
-                    console.error('Error uploading image:', error);
-                    showToast('Failed to upload profile image', 'error');
-                });
+        function uploadProfilePicture() {
+            const token = localStorage.getItem('access_token');
+            const uploadInput = document.getElementById('uploadImage');
+            
+            if (!token) {
+                showToast('Please log in to upload your profile picture', 'error');
+                return;
             }
             
-            // Function to upload profile picture and update profile data together
-            function uploadProfilePictureAndData(imageFile, profileData) {
-                const token = localStorage.getItem('access_token');
+            if (!uploadInput.files || !uploadInput.files[0]) {
+                showToast('Please select an image to upload', 'error');
+                return;
+            }
+            
+            // Create FormData for the image upload
+            const imageFormData = new FormData();
+            imageFormData.append('profile_picture', uploadInput.files[0]);
+            
+            // Show loading spinner or indicator
+            showToast('Uploading image...', 'info');
+            
+            // Upload the image
+            fetch('https://alumni.testproject.live/alumni/profile/', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                    // Don't set Content-Type when using FormData
+                },
+                body: imageFormData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Failed to upload profile image: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('API Response:', data); // Add this for debugging
                 
-                if (!token) {
-                    showToast('Please log in to update your profile', 'error');
-                    return;
+                // Check if the response has the expected structure
+                if (data && data.profile_picture) {
+                    showToast('Profile picture updated successfully!');
+                    // Update the profile image if you have a reference to it
+                    const profileImage = document.getElementById('profileImage'); // Make sure this exists
+                    if (profileImage) {
+                        profileImage.src = data.profile_picture;
+                    }
+                } else if (data && data.user_details && data.user_details.profile_picture) {
+                    // Alternative structure based on your API response
+                    showToast('Profile picture updated successfully!');
+                    const profileImage = document.getElementById('profileImage');
+                    if (profileImage) {
+                        profileImage.src = data.user_details.profile_picture;
+                    }
+                } else {
+                    showToast('Profile picture uploaded but URL not returned', 'warning');
                 }
                 
-                // Create FormData for the image upload
-                const imageFormData = new FormData();
-                imageFormData.append('profile_picture', imageFile);
+                // Hide update image button
+                const updateImageBtn = document.getElementById('updateImageBtn'); // Make sure this exists
+                if (updateImageBtn) {
+                    updateImageBtn.classList.add('hidden');
+                }
                 
-                // Show loading state
-                showToast('Updating profile...', 'info');
+                // Clear the file input
+                uploadInput.value = '';
+            })
+            .catch(error => {
+                console.error('Error uploading image:', error);
+                showToast(`Failed to upload profile image: ${error.message}`, 'error');
+            });
+        }
+            
+            // // Function to upload profile picture and update profile data together
+            // function uploadProfilePictureAndData(imageFile, profileData) {
+            //     const token = localStorage.getItem('access_token');
                 
-                // Upload the image first
-                fetch('http://51.20.139.242/alumni/profile/', {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    },
-                    body: imageFormData
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Failed to upload profile image');
-                    }
-                    return response.json();
-                })
-                .then(imageData => {
-                    // Continue with profile data update, including the new image URL
-                    if (imageData.profile_picture) {
-                        profileData.profile_picture = imageData.profile_picture;
-                    }
-                    return updateProfileData(profileData);
-                })
-                .catch(error => {
-                    console.error('Error during profile update:', error);
-                    showToast('Failed to update profile completely', 'error');
-                });
-            }
+            //     if (!token) {
+            //         showToast('Please log in to update your profile', 'error');
+            //         return;
+            //     }
+                
+            //     // Create FormData for the image upload
+            //     const imageFormData = new FormData();
+            //     imageFormData.append('profile_picture', imageFile);
+                
+            //     // Show loading state
+            //     showToast('Updating profile...', 'info');
+                
+            //     // Upload the image first
+            //     fetch('http://51.20.139.242/alumni/profile/', {
+            //         method: 'POST',
+            //         headers: {
+            //             'Authorization': `Bearer ${token}`
+            //         },
+            //         body: imageFormData
+            //     })
+            //     .then(response => {
+            //         if (!response.ok) {
+            //             throw new Error('Failed to upload profile image');
+            //         }
+            //         return response.json();
+            //     })
+            //     .then(imageData => {
+            //         // Continue with profile data update, including the new image URL
+            //         if (imageData.profile_picture) {
+            //             profileData.profile_picture = imageData.profile_picture;
+            //         }
+            //         return updateProfileData(profileData);
+            //     })
+            //     .catch(error => {
+            //         console.error('Error during profile update:', error);
+            //         showToast('Failed to update profile completely', 'error');
+            //     });
+            // }
             
             // Function to update profile data only
-            function updateProfileData(data) {
-                const token = localStorage.getItem('access_token');
-                
-                if (!token) {
-                    showToast('Please log in to update your profile', 'error');
-                    return Promise.reject('No token available');
-                }
-                
-                // Send the profile data as JSON
-                return fetch('http://51.20.139.242/alumni/profile/', {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': `Bearer ${token}`,
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Failed to update profile');
-                    }
-                    return response.json();
-                })
-                .then(updatedData => {
-                    showToast('Profile updated successfully!');
-                    populateForm(updatedData);
-                    updateProfileStats(updatedData);
-                    return updatedData;
-                })
-                .catch(error => {
-                    console.error('Error saving profile:', error);
-                    showToast('Failed to save profile data', 'error');
-                    throw error;
-                });
+        function updateProfileData(data) {
+            const token = localStorage.getItem('access_token');
+            
+            if (!token) {
+                showToast('Please log in to update your profile', 'error');
+                return Promise.reject('No token available');
             }
+            
+            // Send the profile data as JSON
+            return fetch('https://alumni.testproject.live/alumni/profile/', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to update profile');
+                }
+                return response.json();
+            })
+            .then(updatedData => {
+                showToast('Profile updated successfully!');
+                populateForm(updatedData);
+                updateProfileStats(updatedData);
+                return updatedData;
+            })
+            .catch(error => {
+                console.error('Error saving profile:', error);
+                showToast('Failed to save profile data', 'error');
+                throw error;
+            });
+        }
             
             function populateForm(data) {
                 // Basic information
