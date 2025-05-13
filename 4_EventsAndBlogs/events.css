@@ -19,6 +19,7 @@ a:hover {
 #Title {
     margin-top: 220px;
     margin-bottom: 100px;
+    font-family: inter,sans-serif;
 }
 
 .text h2 {
@@ -66,7 +67,7 @@ a:hover {
     width: 100%;
     height: 100%;
     object-fit: cover;
-} 
+}  
 /* 
 upcoming events code starts here */
 * {
@@ -77,12 +78,13 @@ upcoming events code starts here */
 }
 
 .eventsusingjs {
-    height:970px;
-    width: 80%;
+    width: 95%;
+    max-width: 1200px;
     margin: 20px auto;
     background: #f9f9f9;
     padding: 20px;
     border-radius: 10px;
+    min-height: 600px;
 } 
 
 .tabs {
@@ -90,13 +92,17 @@ upcoming events code starts here */
     justify-content: space-around;
     padding: 15px 0;
     border-bottom: 2px solid #ddd;
+    flex-wrap: wrap;
 }
 
 .tab {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     color: #333;
     cursor: pointer;
+    margin: 5px 10px;
+    transition: color 0.3s, border-bottom 0.3s;
+    padding: 5px 0;
 }
 
 .tab.active {
@@ -104,7 +110,6 @@ upcoming events code starts here */
     border-bottom: 3px solid #f4a100;
     padding-bottom: 5px;
 }
-
 
 .contentevent {
     padding: 20px;
@@ -124,7 +129,6 @@ upcoming events code starts here */
     position: relative;
 }
 
-
 .events-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -138,11 +142,15 @@ upcoming events code starts here */
     overflow: hidden;
     text-align: center;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.event:hover {
+    transform: translateY(-5px);
 }
 
 .event img {
     width: 100%;
-    height: 335px;
     object-fit: cover;
 }
 
@@ -152,15 +160,47 @@ upcoming events code starts here */
     font-weight: bold;
 }
 
+@media (max-width: 1024px) {
+    .events-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .event img {
+        height: 220px;
+    }
+}
+
 @media (max-width: 768px) {
     .events-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    
+    .tab {
+        font-size: 14px;
+    }
 }
 
 @media (max-width: 480px) {
+    .eventsusingjs {
+        width: 98%;
+        padding: 10px;
+    }
+    
     .events-grid {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .tabs {
+        justify-content: center;
+    }
+    
+    .tab {
+        margin: 3px 8px;
+    }
+    
+    .event img {
+        height: 200px;
     }
 }
 
@@ -385,7 +425,11 @@ upcoming events code starts here */
     opacity: 0;
     transition: transform 0.4s ease, opacity 0.4s ease;
 }
-
+.blog-popup-image {
+   
+    object-fit: contain !important;
+   
+}
 .blog-popup-overlay.active .blog-popup {
     transform: translateY(0);
     opacity: 1;
@@ -548,6 +592,7 @@ upcoming events code starts here */
 @media screen and (max-width: 1200px) {
   
     #Title .flex {
+        font-family: inter,sans-serif;
         flex-direction: column;
         align-items: center;
         gap: 30px;
@@ -821,6 +866,7 @@ upcoming events code starts here */
 }
 
 .foot-links {
+    font-family: inter,sans-serif;
     height: 300px;
     width: 1000px;
     position: relative;
@@ -873,6 +919,9 @@ h4 {
     flex-direction: column;
     align-items: flex-start;
     flex: 1 0 0;
+}
+.link2 a:hover, .link3 a:hover {
+    color: #FAA831 !important;
 }
 
 .social {
@@ -939,6 +988,9 @@ h4 {
     display: flex;
     align-items: center;
     gap: 20px;
+}
+.terms a:hover{
+    color: #FAA831 !important;
 }
 
 @media screen and (max-width: 1200px) {

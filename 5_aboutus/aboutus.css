@@ -49,6 +49,7 @@ h3 {
 
 p {
     margin-bottom: 1rem;
+    font-size: 18px;
 }
 
 .container {
@@ -119,14 +120,16 @@ p {
 }
 
 .hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
+    font-family: inter,sans-serif;
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 10px;
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero p {
-    font-size: 1.2rem;
+    font-size: 25px;
     max-width: 800px;
     margin: 0 auto 30px;
 }
@@ -444,7 +447,9 @@ h4 {
     align-items: flex-start;
     flex: 1 0 0;
 }
-
+.link2 a:hover, .link3 a:hover {
+    color: #FAA831 !important;
+}
 .social {
     width: 200px;
     height: 30px;
@@ -509,6 +514,9 @@ h4 {
     display: flex;
     align-items: center;
     gap: 20px;
+}
+.terms a:hover {
+    color: #FAA831 !important;
 }
 
 @media screen and (max-width: 1200px) {

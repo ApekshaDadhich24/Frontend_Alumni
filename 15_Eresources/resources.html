@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Resources Library - SRM University</title>
+    <style>
+        :root {
+            --primary-color: #0A3278; /* Navy Blue */
+            --secondary-color: #F06C1F; /* Orange */
+            --white: #FFFFFF;
+            --light-bg: #f7f9fc;
+            --text-dark: #333333;
+            --table-header-bg: #333333;
+            --table-header-text: #FFFFFF;
+            --table-border: #ddd;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: inter, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        nav {
+            background-color: var(--primary-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .logo-container {
+            height: 120px;
+            width: 350px;
+            background-color: var(--primary-color);
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        
+        .logo-image-container {
+            height: 70px;
+            width: 100%;
+            max-width: 415px;
+            padding: 0 16px;
+        }
+        
+        .logo-image-container img {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+        }
+        
+        .page-title {
+            color: var(--white);
+            font-size: 24px;
+            font-weight: bold;
+            padding: 0 20px;
+            text-align: center;
+            flex-grow: 1;
+            margin-right: 25px;
+        }
+        
+        .home-button {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-right: 20px;
+        }
+        
+        .home-button:hover {
+            background-color: #d45500;
+            transform: translateY(-2px);
+        }
+        
+        .resources-container {
+            background-color: var(--white);
+            padding: 40px;
+            margin: 30px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            font-size: 32px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin: 30px 0 20px;
+            font-size: 24px;
+        }
+        
+        .resource-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        
+        .resource-table th {
+            background-color: var(--table-header-bg);
+            color: var(--table-header-text);
+            text-align: left;
+            padding: 12px 15px;
+        }
+        
+        .resource-table td {
+            border: 1px solid var(--table-border);
+            padding: 12px 15px;
+        }
+        
+        .resource-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .resource-table tr:hover {
+            background-color: #e9e9e9;
+        }
+        
+        .resource-table a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .resource-table a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        
+        .footer-links {
+            margin-top: 15px;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                padding: 0;
+            }
+            
+            .logo-container {
+                width: 100%;
+                height: 100px;
+                justify-content: center;
+            }
+            
+            .page-title {
+                padding: 15px 0;
+            }
+            
+            .home-button {
+                margin: 10px 0 15px 0;
+            }
+            
+            .resources-container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            .resource-table {
+                font-size: 14px;
+            }
+            
+            .resource-table th, .resource-table td {
+                padding: 8px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo-container">
+            <div class="logo-image-container">
+                <img src="../Images/logo.png" alt="SRM logo" />
+            </div>
+        </div>
+        <div class="page-title">Digital Resources Library</div>
+        <a href="../1_HomePage/homePage.html" class="home-button">Back to Home</a>
+    </nav>
+    
+    <div class="container">
+        <div class="resources-container">
+            <h1>Digital Resources Library</h1>
+            
+            <h2>Digital Library</h2>
+            <table class="resource-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Links</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>National Digital Library</td>
+                        <td><a href="https://ndl.iitkgp.ac.in/" target="_blank">https://ndl.iitkgp.ac.in/</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h2>Subject Gateway/Repository</h2>
+            <table class="resource-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Links</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Advocate khoj</td>
+                        <td><a href="http://www.advocatekhoj.com/library/index.php" target="_blank">http://www.advocatekhoj.com/library/index.php</a></td>
+                    </tr>
+                    <tr>
+                        <td>Eldis</td>
+                        <td><a href="http://www.eldis.org/" target="_blank">http://www.eldis.org/</a></td>
+                    </tr>
+                    <tr>
+                        <td>ilOVE languages</td>
+                        <td><a href="http://www.ilovelanguages.com/" target="_blank">http://www.ilovelanguages.com/</a></td>
+                    </tr>
+                    <tr>
+                        <td>The Math forum: internet Mathematics Library</td>
+                        <td><a href="http://mathforum.org/library/" target="_blank">http://mathforum.org/library/</a></td>
+                    </tr>
+                    <tr>
+                        <td>MathGuide</td>
+                        <td><a href="http://www.mathguide.de/" target="_blank">http://www.mathguide.de/</a></td>
+                    </tr>
+                    <tr>
+                        <td>OpenDOAR:The Directory of Open Access Repositories</td>
+                        <td><a href="http://www.opendoar.org/" target="_blank">http://www.opendoar.org/</a></td>
+                    </tr>
+                    <tr>
+                        <td>Psych Web</td>
+                        <td><a href="http://www.psychwww.com/" target="_blank">http://www.psychwww.com/</a></td>
+                    </tr>
+                    <tr>
+                        <td>SocioSite</td>
+                        <td><a href="http://www.sociosite.net/" target="_blank">http://www.sociosite.net/</a></td>
+                    </tr>
+                    <tr>
+                        <td>WWW Virtual Library</td>
+                        <td><a href="http://vlib.org/" target="_blank">http://vlib.org/</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h2>Electronic Journals</h2>
+            <table class="resource-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Links</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Bioline International</td>
+                        <td><a href="http://www.bioline.org.br/" target="_blank">http://www.bioline.org.br/</a></td>
+                    </tr>
+                    <tr>
+                        <td>Chemistry Central</td>
+                        <td><a href="http://www.chemistrycentral.com/" target="_blank">http://www.chemistrycentral.com/</a></td>
+                    </tr>
+                    <tr>
+                        <td>Directory of Open Access Journals</td>
+                        <td><a href="http://www.doaj.org/" target="_blank">http://www.doaj.org/</a></td>
+                    </tr>
+                    <tr>
+                        <td>The Electronic journals Library</td>
+                        <td><a href="http://rzblx1.uni-regensburg.de/ezeit/" target="_blank">http://rzblx1.uni-regensburg.de/ezeit/</a></td>
+                    </tr>
+                    <tr>
+                        <td>The Free Library</td>
+                        <td><a href="http://www.thefreelibrary.com/" target="_blank">http://www.thefreelibrary.com/</a></td>
+                    </tr>
+                    <tr>
+                        <td>Free Medical Journals</td>
+                        <td><a href="http://www.freemedicaljournals.com/" target="_blank">http://www.freemedicaljournals.com/</a></td>
+                    </tr>
+                    <tr>
+                        <td>Hindawi Publishing Corporation</td>
+                        <td><a href="http://www.hindawi.com/" target="_blank">http://www.hindawi.com/</a></td>
+                    </tr>
+                    <tr>
+                        <td>Indian Academy of Science</td>
+                        <td><a href="http://www.ias.ac.in/" target="_blank">http://www.ias.ac.in/</a></td>
+                    </tr>
+                    <tr>
+                        <td>JURN org</td>
+                        <td><a href="http://www.jurn.org/" target="_blank">http://www.jurn.org/</a></td>
+                    </tr>
+                    <tr>
+                        <td>Library Publishing Media</td>
+                        <td><a href="http://www.libpubmedia.co.uk/" target="_blank">http://www.libpubmedia.co.uk/</a></td>
+                    </tr>
+                    <tr>
+                        <td>NISCAIR : Natural Products Repository</td>
+                        <td><a href="http://nopr.niscair.res.in/handle/123456789/7304" target="_blank">http://nopr.niscair.res.in/handle/123456789/7304</a></td>
+                    </tr>
+                    <tr>
+                        <td>NISCAIR : Popular Science Magazines</td>
+                        <td><a href="http://nopr.niscair.res.in/handle/123456789/7414" target="_blank">http://nopr.niscair.res.in/handle/123456789/7414</a></td>
+                    </tr>
+                    <tr>
+                        <td>NISCAIR : Research Journals</td>
+                        <td><a href="http://nopr.niscair.res.in/handle/123456789/2" target="_blank">http://nopr.niscair.res.in/handle/123456789/2</a></td>
+                    </tr>
+                    <tr>
+                        <td>Open Science Directory</td>
+                        <td><a href="http://www.opensciencedirectory.net/" target="_blank">http://www.opensciencedirectory.net/</a></td>
+                    </tr>
+                    <tr>
+                        <td>Public Library of Science</td>
+                        <td><a href="http://www.plos.org/index.php" target="_blank">http://www.plos.org/index.php</a></td>
+                    </tr>
+                    <tr>
+                        <td>PubMed Central</td>
+                        <td><a href="http://www.ncbi.nlm.nih.gov/pmc/" target="_blank">http://www.ncbi.nlm.nih.gov/pmc/</a></td>
+                    </tr>
+                    <tr>
+                        <td>Springer open</td>
+                        <td><a href="http://www.springeropen.com" target="_blank">http://www.springeropen.com</a></td>
+                    </tr>
+                    <tr>
+                        <td>Strategian</td>
+                        <td><a href="http://www.strategian.com/" target="_blank">http://www.strategian.com/</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h2>Electronic Books</h2>
+            <table class="resource-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Links</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>arXiv e-Prints Archieve</td>
+                        <td><a href="http://arxiv.org" target="_blank">http://arxiv.org</a></td>
+                    </tr>
+                    <tr>
+                        <td>Authorama Public Domain Books</td>
+                        <td><a href="http://www.authorama.com/" target="_blank">http://www.authorama.com/</a></td>
+                    </tr>
+                    <tr>
+                        <td>Bartleby.com</td>
+                        <td><a href="http://www.bartleby.com/" target="_blank">http://www.bartleby.com/</a></td>
+                    </tr>
+                    <tr>
+                        <td>Bibliomania</td>
+                        <td><a href="http://www.bibliomania.com/" target="_blank">http://www.bibliomania.com/</a></td>
+                    </tr>
+                    <tr>
+                        <td>Biodiversity Heritage Library</td>
+                        <td><a href="http://www.biodiversitylibrary.org/" target="_blank">http://www.biodiversitylibrary.org/</a></td>
+                    </tr>
+                    <tr>
+                        <td>Complete Works of William Shakespeare</td>
+                        <td><a href="http://shakespeare.mit.edu" target="_blank">http://shakespeare.mit.edu</a></td>
+                    </tr>
+                    <tr>
+                        <td>Directory of Open Access Books</td>
+                        <td><a href="http://www.doabooks.org/doab" target="_blank">http://www.doabooks.org/doab</a></td>
+                    </tr>
+                    <tr>
+                        <td>The Free Library</td>
+                        <td><a href="http://www.thefreelibrary.com/" target="_blank">http://www.thefreelibrary.com/</a></td>
+                    </tr>
+                    <tr>
+                        <td>Great Books and Classics</td>
+                        <td><a href="http://www.grtbooks.com" target="_blank">www.grtbooks.com</a></td>
+                    </tr>
+                    <tr>
+                        <td>The Internet Archive: Text Archive</td>
+                        <td><a href="http://archive.org/details/texts&tababout" target="_blank">http://archive.org/details/texts&tababout</a></td>
+                    </tr>
+                    <tr>
+                        <td>Internet Public Library</td>
+                        <td><a href="http://www.ipl.org/reading/books" target="_blank">http://www.ipl.org/reading/books</a></td>
+                    </tr>
+                    <tr>
+                        <td>Internet Sacred Text Archive</td>
+                        <td><a href="http://www.sacred-texts.com/index.htm" target="_blank">http://www.sacred-texts.com/index.htm</a></td>
+                    </tr>
+                    <tr>
+                        <td>LibriVox</td>
+                        <td><a href="http://librivox.org/" target="_blank">http://librivox.org/</a></td>
+                    </tr>
+                    <tr>
+                        <td>Lit2Go</td>
+                        <td><a href="http://etc.usf.edu/lit2go/" target="_blank">http://etc.usf.edu/lit2go/</a></td>
+                    </tr>
+                    <tr>
+                        <td>The Online Book page</td>
+                        <td><a href="http://digital.library.upenn.edu/books/" target="_blank">http://digital.library.upenn.edu/books/</a></td>
+                    </tr>
+                    <tr>
+                        <td>OAPEN</td>
+                        <td><a href="http://www.oapen.org/home" target="_blank">http://www.oapen.org/home</a></td>
+                    </tr>
+                    <tr>
+                        <td>Public Literature.org:Read Books Online</td>
+                        <td><a href="http://www.publicliterature.org/" target="_blank">http://www.publicliterature.org/</a></td>
+                    </tr>
+                    <tr>
+                        <td>Read Print Site</td>
+                        <td><a href="http://www.readprint.com/" target="_blank">http://www.readprint.com/</a></td>
+                    </tr>
+                    <tr>
+                        <td>The Universal Digital Library</td>
+                        <td><a href="http://www.ulib.org/index.html" target="_blank">http://www.ulib.org/index.html</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h2>Dissertations and Thesis</h2>
+            <table class="resource-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Links</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Caltech THESIS: A Caltech Library Service</td>
+                        <td><a href="http://thesis.library.caltech.edu/" target="_blank">http://thesis.library.caltech.edu/</a></td>
+                    </tr>
+                    <tr>
+                        <td>DART-Europe E-theses Portal</td>
+                        <td><a href="http://www.dart-europe.eu/" target="_blank">http://www.dart-europe.eu/</a></td>
+                    </tr>
+                    <tr>
+                        <td>Diva: an Academic Archive Online</td>
+                        <td><a href="http://www.diva-portal.org/smash/search.jsf" target="_blank">http://www.diva-portal.org/smash/search.jsf</a></td>
+                    </tr>
+                    <tr>
+                        <td>DRUM: Digital Repository at the University of Maryland</td>
+                        <td><a href="http://drum.lib.umd.edu/" target="_blank">http://drum.lib.umd.edu/</a></td>
+                    </tr>
+                    <tr>
+                        <td>Shodhganga</td>
+                        <td><a href="http://shodhganga.inflibnet.ac.in/" target="_blank">http://shodhganga.inflibnet.ac.in/</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h2>Multimedia Resources</h2>
+            <table class="resource-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Links</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Open Course Ware Consortium</td>
+                        <td><a href="http://www.ocwconsortium.org/" target="_blank">http://www.ocwconsortium.org/</a></td>
+                    </tr>
+                    <tr>
+                        <td>Open Michigan</td>
+                        <td><a href="http://open.umich.edu/" target="_blank">http://open.umich.edu/</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h2>Miscellaneous Electronic Resources</h2>
+            <table class="resource-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Links</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>BASE: Bielefeld Academic Search Engine</td>
+                        <td><a href="http://www.base-search.net/index.php" target="_blank">http://www.base-search.net/index.php</a></td>
+                    </tr>
+                    <tr>
+                        <td>ERIC</td>
+                        <td><a href="http://www.ndltd.org/" target="_blank">http://www.ndltd.org/</a></td>
+                    </tr>
+                    <tr>
+                        <td>India Environment Portal</td>
+                        <td><a href="http://www.indiaenvironmentportal.org.in/" target="_blank">http://www.indiaenvironmentportal.org.in/</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; Copyright 2025 SRM University Delhi-NCR, Sonepat. All rights reserved.</p>
+          
+        </div>
+    </footer>
+</body>
+</html>

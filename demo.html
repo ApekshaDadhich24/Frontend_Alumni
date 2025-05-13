@@ -1,0 +1,361 @@
+<!-- Events & Blogs Section -->
+<!-- Add this where you want the section to appear in your existing HTML -->
+<section id="events-blogs-section" class="events-blogs-full-section">
+    <div class="events-blogs-container">
+        <!-- Video Background with Light Overlay -->
+        <video autoplay muted loop class="events-blogs-video-bg">
+            <source src="../Images/4_Events&Blogs-img/Events_compressed.mp4" type="video/mp4">
+        </video>
+        <div class="events-blogs-overlay"></div>
+        
+        <!-- Main Content -->
+        <div class="events-blogs-content">
+            <div class="events-blogs-title-area">
+                <div class="events-blogs-tagline">Discover & Experience</div>
+                
+                <h2 class="events-blogs-pre-title">Events and Blogs</h2>
+                
+                <div class="events-blogs-animated-title">
+                </div>
+                
+                <p class="events-blogs-subtitle">Explore captivating <span class="events-blogs-highlight">events</span> and immerse yourself in thought-provoking <span class="events-blogs-highlight">blogs</span> that inspire and educate.</p>
+            </div>
+            
+            <div class="events-blogs-features">
+                <div class="events-blogs-card">
+                    <h3>Events</h3>
+                    <p>Experience memorable gatherings and cultural celebrations</p>
+                </div>
+                <div class="events-blogs-card">
+                    <h3>Stories</h3>
+                    <p>Discover powerful narratives and personal journeys</p>
+                </div>
+                <div class="events-blogs-card">
+                    <h3>Community</h3>
+                    <p>Connect with like-minded individuals and build relationships</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Add this to your CSS file or in a <style> tag in your head section -->
+<style>
+    /* Events & Blogs Section Styles - Brighter Theme */
+    .events-blogs-full-section {
+        min-height: 100vh;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .events-blogs-container {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        background-color: #f8f9fa;
+    }
+
+    /* Video Background Setup */
+    .events-blogs-video-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.4;
+        filter: brightness(1.2) contrast(1.1);
+    }
+
+    .events-blogs-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.6) 40%, rgba(240,240,255,0.5) 60%, rgba(245,245,255,0.7) 100%);
+        z-index: 1;
+    }
+
+    /* Content Area */
+    .events-blogs-content {
+        position: relative;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        padding: 2rem;
+    }
+
+    /* Title Area */
+    .events-blogs-title-area {
+        text-align: center;
+        margin-bottom: 5vh;
+        position: relative;
+    }
+
+    .events-blogs-tagline {
+        font-family: 'Inter', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 8px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #ff9500;
+        opacity: 0;
+        animation: eventsBlogs-fadeInUp 1s ease forwards;
+        animation-delay: 0.5s;
+    }
+    
+    .events-blogs-pre-title {
+        font-family: 'Averia Serif Libre', serif;
+        font-size: 24px;
+        color: #0a3278;
+        margin: 15px 0 0;
+        opacity: 0;
+        animation: eventsBlogs-fadeInUp 1s ease forwards;
+        animation-delay: 0.7s;
+    }
+
+    .events-blogs-animated-title {
+        font-family: 'Bebas Neue', cursive;
+        font-size: 150px;
+        line-height: 0.9;
+        margin: 20px 0;
+        background: linear-gradient(to right, #0a3278, #ff9500);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-align: center;
+        position: relative;
+        letter-spacing: 2px;
+        transform: perspective(500px) rotateX(10deg);
+        text-shadow: 0 8px 15px rgba(10, 50, 120, 0.2);
+    }
+
+    .events-blogs-animated-title span {
+        display: inline-block;
+        opacity: 0;
+        animation: eventsBlogs-charScale 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    .events-blogs-animated-title::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -20px;
+        width: 0;
+        height: 2px;
+        background: #ff9500;
+        animation: eventsBlogs-lineExpand 1.5s 1.5s forwards ease-out;
+    }
+
+    .events-blogs-subtitle {
+        color: #333333;
+        font-family: "Averia Serif Libre", serif;
+        font-size: 26px;
+        font-weight: 400;
+        line-height: 1.4;
+        max-width: 600px;
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 40px;
+        opacity: 0;
+        animation: eventsBlogs-fadeInUp 1s ease forwards;
+        animation-delay: 1.2s;
+    }
+
+    .events-blogs-highlight {
+        color: #ff9500;
+        font-weight: 700;
+        position: relative;
+    }
+
+    .events-blogs-highlight::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: #ff9500;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.5s ease;
+    }
+
+    .events-blogs-subtitle:hover .events-blogs-highlight::after {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+
+    /* Feature Cards */
+    .events-blogs-features {
+        display: flex;
+        margin-top: 3rem;
+        gap: 20px;
+        opacity: 0;
+        animation: eventsBlogs-fadeInUp 1s ease forwards;
+        animation-delay: 1.5s;
+    }
+
+    .events-blogs-card {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(10, 50, 120, 0.1);
+        border-radius: 15px;
+        padding: 25px;
+        width: 180px;
+        text-align: center;
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .events-blogs-card:hover {
+        transform: translateY(-10px);
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 15px 30px rgba(10, 50, 120, 0.1);
+        border: 1px solid rgba(255, 149, 0, 0.3);
+    }
+
+    .events-blogs-card::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+            to bottom right,
+            rgba(255, 149, 0, 0.1),
+            rgba(255, 255, 255, 0)
+        );
+        transform: rotate(45deg);
+        z-index: -1;
+        transition: all 0.5s ease;
+        opacity: 0;
+    }
+
+    .events-blogs-card:hover::before {
+        opacity: 1;
+        animation: eventsBlogs-shine 1.5s forwards;
+    }
+
+    .events-blogs-card h3 {
+        color: #ff9500;
+        font-family: 'Averia Serif Libre', serif;
+        margin-bottom: 10px;
+        font-size: 22px;
+    }
+
+    .events-blogs-card p {
+        color: #555555;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    /* Animations (namespaced to avoid conflicts) */
+    @keyframes eventsBlogs-charScale {
+        0% {
+            opacity: 0;
+            transform: scale(3) translateY(-20px);
+            filter: blur(10px);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            filter: blur(0);
+        }
+    }
+
+    @keyframes eventsBlogs-lineExpand {
+        0% { width: 0; }
+        100% { width: 180px; }
+    }
+
+    @keyframes eventsBlogs-fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes eventsBlogs-shine {
+        0% { left: -50%; }
+        100% { left: 150%; }
+    }
+
+    /* Responsive Design */
+    @media screen and (max-width: 1200px) {
+        .events-blogs-animated-title {
+            font-size: 120px;
+        }
+    }
+
+    @media screen and (max-width: 900px) {
+        .events-blogs-animated-title {
+            font-size: 90px;
+        }
+        
+        .events-blogs-subtitle {
+            font-size: 22px;
+            max-width: 90%;
+        }
+        
+        .events-blogs-features {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        .events-blogs-animated-title {
+            font-size: 60px;
+        }
+        
+        .events-blogs-tagline {
+            font-size: 14px;
+            letter-spacing: 5px;
+        }
+        
+        .events-blogs-subtitle {
+            font-size: 18px;
+        }
+        
+        .events-blogs-card {
+            width: 150px;
+            padding: 20px;
+        }
+        
+        .events-blogs-card h3 {
+            font-size: 18px;
+        }
+    }
+</style>
+
+<!-- Add this script at the end of your body or in your main JS file -->
+<script>
+    // Events & Blogs Section Interactivity
+    document.querySelectorAll('.events-blogs-card').forEach(card => {
+        card.addEventListener('click', () => {
+            card.style.transform = 'scale(1.05) translateY(-15px)';
+            setTimeout(() => {
+                card.style.transform = 'translateY(-10px)';
+            }, 300);
+        });
+    });
+    
+
+</script>

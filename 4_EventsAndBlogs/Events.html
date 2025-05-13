@@ -295,8 +295,8 @@
               }
           }
       </script>
-
-    <section id="Title">
+<!-- header video code starts here  -->
+     <section id="Title">
         <div class="flex justify-center gap-[52px]">
             <div class="text flex flex-col gap-[83px]">
                 <h2>
@@ -309,7 +309,7 @@
     
             <div class="events-video">
                 <video autoplay muted loop id="background-video">
-                    <source src="/Images/4_Events&Blogs-img/events.mp4" type="video/mp4">
+                    <source src="../Images/4_Events&Blogs-img/Events_compressed.mp4" type="video/mp4">
                 </video>
             </div>
         </div>
@@ -328,12 +328,12 @@
 
     <div id="past" class="contentevent active">
         <div class="events-grid">
-            <div class="event"><img src="/Images/4_Events&Blogs-img/event1.jpg" alt="Orientation"><p>Orientation</p></div>
-            <div class="event"><img src="/Images/4_Events&Blogs-img/event2.jpg" alt="Ethnic Day"><p>Ethnic Day</p></div>
-            <div class="event"><img src="/Images/4_Events&Blogs-img/event3.jpg" alt="Reward Ceremony"><p>Reward Ceremony</p></div>
-            <div class="event"><img src="/Images/4_Events&Blogs-img/event4.jpg" alt="Cultural Fest"><p>Cultural Fest</p></div>
-            <div class="event"><img src="/Images/4_Events&Blogs-img/event5.jpg" alt="Industrial Visit"><p>Industrial Visit</p></div>
-            <div class="event"><img src="/Images/4_Events&Blogs-img/event6.jpg" alt="Yearly Fest"><p>Yearly Fest</p></div>
+            <div class="event"><img src="/Images/4_Events&Blogs-img/Event01.jpg" alt="Orientation"><p>Cultural Fest</p></div>
+            <div class="event"><img src="/Images/4_Events&Blogs-img/Event02.jpg" alt="Ethnic Day"><p>Yoga Day</p></div>
+            <div class="event"><img src="/Images/4_Events&Blogs-img/Event03.jpg" alt="Reward Ceremony"><p>Concert Night</p></div>
+            <div class="event"><img src="/Images/4_Events&Blogs-img/Event04.jpg" alt="Cultural Fest"><p>Ethnic Day</p></div>
+            <div class="event"><img src="/Images/4_Events&Blogs-img/Event05.jpg" alt="Industrial Visit"><p>Industrial Visit</p></div>
+            <div class="event"><img src="/Images/4_Events&Blogs-img/Event06.jpg" alt="Yearly Fest"><p>Reward Ceremony</p></div>
         </div>
     </div>
 
@@ -351,25 +351,21 @@
 </div>
 
 <script>
-      
-   function showSection(sectionId) {
-  
-    document.querySelectorAll(".tab").forEach(tab => {
-        tab.classList.remove("active");
-    });
+    function showSection(sectionId) {
+        document.querySelectorAll(".tab").forEach(tab => {
+            tab.classList.remove("active");
+        });
 
+        event.target.classList.add("active");
 
-    event.target.classList.add("active");
+        document.querySelectorAll(".contentevent").forEach(section => {
+            section.classList.remove("active");
+        });
 
- 
-    document.querySelectorAll(".contentevent").forEach(section => {
-        section.classList.remove("active");
-    });
-
-    setTimeout(() => {
-        document.getElementById(sectionId).classList.add("active");
-    }, 100);
-}
+        setTimeout(() => {
+            document.getElementById(sectionId).classList.add("active");
+        }, 100);
+    }
 </script> 
 
 
@@ -392,26 +388,27 @@
         <div class="blog-part1">
             <div class="big-blog">
                 <div class="blog1" data-blog-id="1">
-                    <img src="/Images/4_Events&Blogs-img/event6.jpg" alt="" />
+                    <img src="/Images/4_Events&Blogs-img/Event01.jpg" alt="" />
                     <div class="blog-content">
                         <h5>Blog1</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. At purus tellus arcu sit nibh consectetur.</p>
+                        <p>The stage was set, lights flashing bright, and the air buzzed with excitement as SRM Fest’s concert night began.</p>
                     </div>
                 </div>
             </div>
             <div class="small-blog">
                 <div class="blog2" data-blog-id="2">
-                    <img src="/Images/4_Events&Blogs-img/event5.jpg" alt="" />
+                    <img src="/Images/4_Events&Blogs-img/Event02.jpg" alt="" />
                     <div class="blog-content">
                         <h5>Blog2</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. At purus tellus arcu sit nibh consectetur.</p>
+                        <p>The morning sun rose gently as SRM welcomed everyone to a peaceful journey of mindfulness and inner balance through yoga.
+                        </p>
                     </div>
                 </div>
                 <div class="blog3" data-blog-id="3">
-                    <img src="/Images/4_Events&Blogs-img/event4.jpg" alt="" />
+                    <img src="/Images/4_Events&Blogs-img/Event03.jpg" alt="" />
                     <div class="blog-content">
                         <h5>Blog3</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. At purus tellus arcu sit nibh consectetur.</p>
+                        <p>Colors, music, and traditions came together as SRM lit up with the vibrant spirit of its much-awaited cultural fest.</p>
                     </div>
                 </div>
             </div>
@@ -420,26 +417,26 @@
         <div class="blog-part2">
             <div class="big-blog">
                 <div class="blog1" data-blog-id="6">
-                    <img src="/Images/4_Events&Blogs-img/event3.jpg" alt="" />
+                    <img src="/Images/4_Events&Blogs-img/Event06.jpg" alt="" />
                     <div class="blog-content">
                         <h5>Blog6</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. At purus tellus arcu sit nibh consectetur.</p>
+                        <p>A wave of pride and celebration filled the air as the award ceremony honored outstanding achievements and inspiring journeys.</p>
                     </div>
                 </div>
             </div>
             <div class="small-blog">
                 <div class="blog2" data-blog-id="4">
-                    <img src="/Images/4_Events&Blogs-img/event2.jpg" alt="" />
+                    <img src="/Images/4_Events&Blogs-img/Event04.jpg" alt="" />
                     <div class="blog-content">
                         <h5>Blog4</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. At purus tellus arcu sit nibh consectetur.</p>
+                        <p>Grace met tradition as Panache, the dance society of SRM, mesmerized the audience with a stunning classical dance showcase.</p>
                     </div>
                 </div>
                 <div class="blog3" data-blog-id="5">
-                    <img src="/Images/4_Events&Blogs-img/event1.jpg" alt="" />
+                    <img src="/Images/4_Events&Blogs-img/Event05.jpg" alt="" />
                     <div class="blog-content">
                         <h5>Blog5</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. At purus tellus arcu sit nibh consectetur.</p>
+                        <p>The soft glow of the diya lit up the evening, marking the beginning of the event with hope, positivity, and tradition.</p>
                     </div>
                 </div>
             </div>
@@ -468,45 +465,61 @@
         const blogData = {
             1: {
                 title: "Blog1",
-                image: "/Images/4_Events&Blogs-img/images/E01.jpg",
-                content: `<p>This is the full content of Blog 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac felis vitae nunc lobortis mattis. Nullam tincidunt nibh et nisi efficitur, sit amet aliquet mauris bibendum.</p>
-                <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed euismod, nisl a tincidunt ultricies, leo nunc lacinia eros, ac dapibus metus nisi id orci. Curabitur nec sem ac urna cursus varius.</p>
-                <p>Donec aliquam justo vitae mi tempor, vel consequat justo facilisis. Morbi convallis lorem ut nibh eleifend, in ultricies sapien cursus. Etiam aliquam consectetur justo, in sagittis dui bibendum ac.</p>`
+                image: "../Images/4_Events&Blogs-img/Event01.jpg",
+                content: `<p>The night sky came alive as the SRM Fest concert kicked off with electrifying performances. Music filled the air, lights danced across the crowd, and students gathered to celebrate a night to remember.
+
+The energy was unmatched as bands and DJs set the stage on fire, blending beats with passion. Friends swayed, sang, and cheered together, creating memories that will be cherished for years to come.
+
+From soulful melodies to heart-thumping tracks, every moment was pure magic. SRM Fest’s Concert Night truly captured the spirit of youth, dreams, and unstoppable energy.
+
+</p>`
             },
             2: {
                 title: "Blog2",
-                image: "/Images/4_Events&Blogs-img/images/E02.jpg",
-                content: `<p>Welcome to Blog 2! Sed vestibulum justo sit amet felis volutpat, vel tempor ligula bibendum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
-                <p>Fusce ut odio vel urna placerat placerat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque ullamcorper hendrerit justo, vel tincidunt magna finibus ac.</p>
-                <p>Nulla facilisi. Proin efficitur libero vel nisi tincidunt, vel feugiat nisl convallis. Donec consectetur orci ac eros posuere, vel tincidunt justo gravida.</p>`
+                image: "../Images/4_Events&Blogs-img/Event02.jpg",
+                content: `<p>The morning sun bathed the SRM campus in a golden glow as Yoga Day began with calm and serenity. Mats rolled out, minds stilled, and a spirit of mindfulness filled the air.
+
+Trained instructors guided the crowd through graceful asanas and deep breathing, creating a powerful connection between mind, body, and soul. Students and faculty moved in harmony, embracing peace and wellness.
+
+From gentle stretches to meditative moments, every breath carried purpose. SRM’s Yoga Day beautifully celebrated health, inner strength, and the timeless tradition of holistic living.</p>`
             },
             3: {
                 title: "Blog3",
-                image: "/Images/4_Events&Blogs-img/images/E03.jpg",
-                content: `<p>Blog 3 brings you exciting content! Integer vel aliquam neque. Etiam vel magna vel nisl commodo fermentum vel vel libero. Phasellus vel justo vel libero posuere tincidunt.</p>
-                <p>Fusce ac diam vel magna lobortis vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec aliquam justo vitae mi tempor, vel consequat justo facilisis.</p>
-                <p>Morbi convallis lorem ut nibh eleifend, in ultricies sapien cursus. Etiam aliquam consectetur justo, in sagittis dui bibendum ac. Sed vestibulum justo sit amet felis volutpat, vel tempor ligula bibendum.</p>`
+                image: "../Images/4_Events&Blogs-img/Event03.jpg",
+                content: `<p>The excitement was electric as SRM Fest’s Concert Night burst into life with dazzling lights and heart-thumping music. The crowd roared, hands waved in the air, and the campus transformed into a sea of celebration.
+
+Top bands and DJs delivered unforgettable performances, blending rhythms and beats that had everyone singing and dancing together. The night sparkled with laughter, cheers, and pure joy.
+
+From soulful ballads to electrifying anthems, each song created a memory etched in time. Concert Night at SRM Fest truly captured the energy, dreams, and spirit of a vibrant generation.</p>`
             },
             4: {
                 title: "Blog4",
-                image: "/Images/4_Events&Blogs-img/images/E05.jpg",
-                content: `<p>Discover Blog 4! Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed euismod, nisl a tincidunt ultricies, leo nunc lacinia eros, ac dapibus metus nisi id orci.</p>
-                <p>Curabitur nec sem ac urna cursus varius. Integer vel aliquam neque. Etiam vel magna vel nisl commodo fermentum vel vel libero. Phasellus vel justo vel libero posuere tincidunt.</p>
-                <p>Fusce ac diam vel magna lobortis vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec aliquam justo vitae mi tempor, vel consequat justo facilisis.</p>`
+                image: "../Images/4_Events&Blogs-img/Event04.jpg",
+                content: `<p>The stage glowed with elegance as Panache, SRM’s dance society, presented a mesmerizing classical dance showcase. Every step, every gesture told a story rooted in tradition and grace.
+
+Dancers adorned in vibrant costumes moved in perfect harmony, weaving tales of devotion, valor, and beauty. The audience watched in awe as the rhythms of ancient art forms filled the air with magic.
+
+From intricate footwork to expressive storytelling, each performance was a tribute to India’s rich cultural heritage. Panache’s classical showcase was a breathtaking celebration of timeless art and youthful passion.</p>`
             },
             5: {
                 title: "Blog5",
-                image: "/Images/4_Events&Blogs-img/images/E06.jpg",
-                content: `<p>Blog 5 is here! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac felis vitae nunc lobortis mattis. Nullam tincidunt nibh et nisi efficitur, sit amet aliquet mauris bibendum.</p>
-                <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed euismod, nisl a tincidunt ultricies, leo nunc lacinia eros, ac dapibus metus nisi id orci.</p>
-                <p>Curabitur nec sem ac urna cursus varius. Integer vel aliquam neque. Etiam vel magna vel nisl commodo fermentum vel vel libero. Phasellus vel justo vel libero posuere tincidunt.</p>`
+                image: "../Images/4_Events&Blogs-img/Event05.jpg",
+                content: `<p>The evening shimmered with warmth and hope as the diya lighting ceremony marked the start of a beautiful celebration. The soft flicker of candles illuminated faces, bringing people together in a shared moment of peace and positivity.
+
+Each diya, a symbol of light overcoming darkness, was carefully lit, filling the air with a sense of calm and reverence. As the ceremony unfolded, the campus glowed, both physically and spiritually.
+
+The gentle light from each diya created a sense of unity, reflecting the collective spirit of SRM. This moment of stillness and light truly set the tone for the event ahead.</p>`
             },
             6: {
                 title: "Blog6",
-                image: "/Images/4_Events&Blogs-img/images/E04.jpg",
-                content: `<p>Welcome to Blog 6! Fusce ut odio vel urna placerat placerat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                <p>Quisque ullamcorper hendrerit justo, vel tincidunt magna finibus ac. Nulla facilisi. Proin efficitur libero vel nisi tincidunt, vel feugiat nisl convallis.</p>
-                <p>Donec consectetur orci ac eros posuere, vel tincidunt justo gravida. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac felis vitae nunc lobortis mattis. Nullam tincidunt nibh et nisi efficitur, sit amet aliquet mauris bibendum.</p>`
+                image: "../Images/4_Events&Blogs-img/Event06.jpg",
+                content: `<p>The atmosphere was filled with anticipation and pride as the award ceremony honored the remarkable achievements of SRM’s brightest stars. With each announcement, the crowd erupted in applause, celebrating excellence and hard work.
+
+Students, faculty, and staff gathered to acknowledge the dedication, talent, and perseverance that led to these outstanding accomplishments. From academic excellence to exceptional contributions, every award reflected the spirit of striving for greatness.
+
+The ceremony was a moment to recognize not just success, but the journey of determination and passion. It was a true celebration of the relentless pursuit of excellence at SRM.
+
+</p>`
             }
         };
 
@@ -586,10 +599,10 @@
                 <div class="link2">
                     <div class="Shortcuts">
                         <h4>Shortcuts</h4>
-                        <a>Open Access E-Resources</a><br>
-                        <a>Academic Calendar</a><br>
-                        <a>Downloads</a><br>
-                        <a>Contacts</a>
+                        <a href="../17_IQAC/iqac.html">About IQAC</a><br>
+                        <a href="../15_Eresources/resources.html">Open Access E-Resources</a><br>
+                        <a href="https://srmuniversity.ac.in/uploads/51ba570fe68fc088e0a942bdf8700cdce7eb8b1d/1737521075Academic-Calender-2024-25new.pdf">Academic Calendar</a><br>
+                        <a href="../16_contactus/contact.html">Contact Us</a>
                     </div>
                     <div class="social">
                         <a href="https://www.youtube.com/@SRMUniversityDelhiNCR" title="YouTube"><i class="fa-brands fa-youtube yt" style="font-size: 20px;"></i></a>
@@ -601,11 +614,10 @@
                 <div class="link3">
                     <div class="Important-links">
                         <h4>Important-links</h4>
-                        <a>Regulatory Approvals & Recognitions</a><br>
-                        <a>SRMU Statutory Bodies</a><br>
-                        <a>Anti-Ragging Policy</a><br>
-                        <a>Code of conduct</a><br>
-                        <a>Statutory Committees</a><br>
+                        <a href="../13_statutoryBodies/bodies.html">SRMUH Statutory Committees</a><br>
+                        <a href="../12_antiraggingpolicy/ragging.html">Anti-Ragging Policy</a><br>
+                        <a href="../11_codeofconduct/conduct.html">Code of conduct</a><br>
+                        <a href="../14_placementpolicy/policy.html">Placement Policy for Students</a><br>
                     </div>
                 </div>
             </div>
@@ -616,7 +628,7 @@
                 </div>
                 <div class="terms">
                     <a href="../9_Terms/terms.html" style="text-decoration:none; color:white;">Terms and conditions |</a>
-                    <a href="../9_Terms/privacy.html" style="text-decoration:none; color:white;">Privacy policy</a>
+                    <a href="../9_Terms/privacy.html" style="text-decoration:none; color:white;">Privacy policy |</a>
                     <a href="../10_madeby/madeby.html" style="text-decoration:none; color:white;">Made by</a>
                 </div>
             </div>

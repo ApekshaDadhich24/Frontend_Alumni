@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: inter,sans-serif;
 }
 
 
@@ -62,13 +62,15 @@ body {
 }
 
 .content h1 {
+    margin-top: 100px;
     margin-bottom: 20px;
-    font-size: 3rem;
+    font-size: 60px;
+    font-weight: 700;
+    font-family: Inter, sans-serif;
 }
 
 .content p {
-    font-size: 1.2rem !important; 
-    line-height: 1.6;
+    font-size: 25px;
 }
 
 @media (max-width: 768px) {
@@ -124,7 +126,7 @@ body {
 
 .alumni-heading h3 {
     color: #000;
-    font-family: Lora;
+    font-family: inter,sans-serif;
     font-size: 40px;
     font-style: normal;
     font-weight: 600;
@@ -133,7 +135,7 @@ body {
 
 .alumni-heading p {
     color: #000;
-    font-family: Inter;
+    font-family: Inter,sans-serif;
     font-size: 22px;
     font-style: normal;
     font-weight: 400;
@@ -212,6 +214,7 @@ body {
 }
 
 .alumni-info {
+    font-family: inter,sans-serif;
     border-top: 1px solid rgba(0, 0, 0, 0.5);
     padding: 15px;
     width: 100%;
@@ -219,6 +222,7 @@ body {
 }
 
 .alumni-name {
+   
     font-size: 1.2rem;
     font-weight: 600;
     color: #1e3a6e;
@@ -234,12 +238,14 @@ body {
 }
 
 .alumni-role {
+    
     color: #555;
     margin-bottom: 5px;
     transition: color 0.3s ease;
 }
 
 .alumni-company {
+    
     color: #777;
     margin-bottom: 15px;
     font-size: 0.9rem;
@@ -277,6 +283,7 @@ body {
 
 label.read-more-btn,
 label.show-less-btn {
+    font-family: inter,sans-serif;
     display: inline-flex;
     padding: 16px 24px;
     justify-content: center;
@@ -411,6 +418,7 @@ label.show-less-btn {
 }
 
 .alm-filter-section {
+    font-family: inter,sans-serif;
     background-color: white;
     padding: 20px;
     border-radius: 8px;
@@ -660,6 +668,7 @@ label.show-less-btn {
 }
 
 .foot-links {
+    font-family: inter,sans-serif;
     height: 300px;
     width: 1000px;
     position: relative;
@@ -712,6 +721,9 @@ h4 {
     flex-direction: column;
     align-items: flex-start;
     flex: 1 0 0;
+}
+.link2 a:hover, .link3 a:hover {
+    color: #FAA831 !important;
 }
 
 .social {
@@ -778,6 +790,9 @@ h4 {
     display: flex;
     align-items: center;
     gap: 20px;
+}
+.terms a:hover{
+    color:#FAA831;
 }
 
 @media screen and (max-width: 1200px) {

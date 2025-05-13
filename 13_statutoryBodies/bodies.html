@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statutory Committee - SRM University Sonepat Delhi-NCR</title>
+    <style>
+        :root {
+            --primary-color: #0A3278; /* Navy Blue */
+            --secondary-color: #F06C1F; /* Orange */
+            --white: #FFFFFF;
+            --light-bg: #f7f9fc;
+            --text-dark: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: inter, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        nav {
+            background-color: var(--primary-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .logo-container {
+            height: 120px;
+            width: 350px;
+            background-color: var(--primary-color);
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        
+        .logo-image-container {
+            height: 70px;
+            width: 100%;
+            max-width: 415px;
+            padding: 0 16px;
+        }
+        
+        .logo-image-container img {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+        }
+        
+        .page-title {
+            color: var(--white);
+            font-size: 24px;
+            font-weight: bold;
+            padding: 0 20px;
+            text-align: center;
+            flex-grow: 1;
+            margin-right: 25px;
+        }
+        
+        .home-button {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-right: 20px;
+        }
+        
+        .home-button:hover {
+            background-color: #d45500;
+            transform: translateY(-2px);
+        }
+        
+        .terms-container {
+            background-color: var(--white);
+            padding: 40px;
+            margin: 30px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+        }
+        
+        h1 {
+            margin-bottom: 15px;
+            font-size: 32px;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin: 25px 0 15px;
+        }
+        
+        p, ul, ol {
+            margin-bottom: 20px;
+        }
+        
+        ul, ol {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        .highlight {
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #d45500;
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        
+        .footer-links {
+            margin-top: 15px;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        /* Committee Table Styles */
+        .committee-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .committee-table th,
+        .committee-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        
+        .committee-table th {
+            background-color: var(--primary-color);
+            color: var(--white);
+            font-weight: bold;
+        }
+        
+        .committee-table tr:nth-child(even) {
+            background-color: #f8f8f8;
+        }
+        
+        .committee-table tr:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .sr-no {
+            width: 60px;
+            text-align: center;
+        }
+        
+        .committee-role {
+            width: 180px;
+        }
+        
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                padding: 0;
+            }
+            
+            .logo-container {
+                width: 100%;
+                height: 100px;
+                justify-content: center;
+            }
+            
+            .page-title {
+                padding: 15px 0;
+            }
+            
+            .home-button {
+                margin: 10px 0 15px 0;
+            }
+            
+            .terms-container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            .committee-table th,
+            .committee-table td {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+            
+            .sr-no {
+                width: 40px;
+            }
+            
+            .committee-role {
+                width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo-container">
+            <div class="logo-image-container">
+                <img src="../Images/logo.png" alt="SRM logo" />
+            </div>
+        </div>
+        <div class="page-title">Statutory Committee</div>
+        <a href="../1_HomePage/homePage.html" class="home-button">Back to Home</a>
+    </nav>
+    
+    <div class="container">
+        <div class="terms-container">
+            <div class="section">
+                <h2>About the Statutory Committee</h2>
+                <p>The Statutory Committee at SRM University Sonepat Delhi-NCR is responsible for providing oversight and guidance across various academic and administrative matters. Comprising faculty members from diverse departments, the committee ensures comprehensive representation and multidisciplinary perspectives in decision-making processes. The committee plays a crucial role in maintaining institutional standards, addressing challenges, and implementing strategic initiatives for the university's growth and development.</p>
+            </div>
+            
+            <div class="section">
+                <h2>Key Responsibilities</h2>
+                <ul>
+                    <li>Formulating and reviewing university policies and regulations</li>
+                    <li>Ensuring compliance with UGC and regulatory requirements</li>
+                    <li>Overseeing academic quality assurance measures</li>
+                    <li>Addressing institutional challenges and proposing solutions</li>
+                    <li>Advising on infrastructure development and resource allocation</li>
+                    <li>Reviewing student welfare initiatives and support services</li>
+                    <li>Facilitating inter-departmental coordination and collaboration</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>Committee Members</h2>
+                <table class="committee-table">
+                    <thead>
+                        <tr>
+                            <th class="sr-no">S.No.</th>
+                            <th>Name</th>
+                            <th>Department/Designation</th>
+                            <th class="committee-role">Role</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="sr-no">1</td>
+                            <td>Mr. Manoj Madhavan Kutty</td>
+                            <td>Director – Alumni Association</td>
+                            <td class="committee-role">Chairman</td>
+                        </tr>
+                        <tr>
+                            <td class="sr-no">2</td>
+                            <td>Dr. M. Mohan</td>
+                            <td>Associate Dean (Student Welfare)</td>
+                            <td class="committee-role">Member</td>
+                        </tr>
+                        <tr>
+                            <td class="sr-no">3</td>
+                            <td>Dr. Neeraj Dahiya</td>
+                            <td>Department of CSE</td>
+                            <td class="committee-role">Member</td>
+                        </tr>
+                        <tr>
+                            <td class="sr-no">4</td>
+                            <td>Dr. Manvi Khatri</td>
+                            <td>Department of CSE</td>
+                            <td class="committee-role">Member</td>
+                        </tr>
+                        <tr>
+                            <td class="sr-no">5</td>
+                            <td>Dr. Satyendra Srivastava</td>
+                            <td>Department of ECE</td>
+                            <td class="committee-role">Member</td>
+                        </tr>
+                        <tr>
+                            <td class="sr-no">6</td>
+                            <td>Dr. Deepika Yadav</td>
+                            <td>Department of EEE</td>
+                            <td class="committee-role">Member</td>
+                        </tr>
+                        <tr>
+                            <td class="sr-no">7</td>
+                            <td>Dr. Ankit Mani Tripathi</td>
+                            <td>Department of ME</td>
+                            <td class="committee-role">Member</td>
+                        </tr>
+                        <tr>
+                            <td class="sr-no">8</td>
+                            <td>Dr. Ravi Malik</td>
+                            <td>Department of Civil</td>
+                            <td class="committee-role">Member</td>
+                        </tr>
+                        <tr>
+                            <td class="sr-no">9</td>
+                            <td>Dr. Vandana Dahiya</td>
+                            <td>Department of BME</td>
+                            <td class="committee-role">Member</td>
+                        </tr>
+                        <tr>
+                            <td class="sr-no">10</td>
+                            <td>Dr. Preeti Dabas</td>
+                            <td>Department of Economics</td>
+                            <td class="committee-role">Member</td>
+                        </tr>
+                        <tr>
+                            <td class="sr-no">11</td>
+                            <td>Dr. Tulika Kakkar</td>
+                            <td>Department of English</td>
+                            <td class="committee-role">Member</td>
+                        </tr>
+                        <tr>
+                            <td class="sr-no">12</td>
+                            <td>Dr. Kailash Chandra Barmola</td>
+                            <td>Department of Psychology</td>
+                            <td class="committee-role">Member</td>
+                        </tr>
+                        <tr>
+                            <td class="sr-no">13</td>
+                            <td>Dr. Ajay Patel</td>
+                            <td>Department of Agriculture Science</td>
+                            <td class="committee-role">Member</td>
+                        </tr>
+                        <tr>
+                            <td class="sr-no">14</td>
+                            <td>Dr. Archana Gupta</td>
+                            <td>Department of BT/MB</td>
+                            <td class="committee-role">Member</td>
+                        </tr>
+                        <tr>
+                            <td class="sr-no">15</td>
+                            <td>Dr. Naresh Kumar</td>
+                            <td>Department of Chemistry</td>
+                            <td class="committee-role">Member</td>
+                        </tr>
+                        <tr>
+                            <td class="sr-no">16</td>
+                            <td>Dr. Sachin Malik</td>
+                            <td>Department of Mathematics</td>
+                            <td class="committee-role">Member</td>
+                        </tr>
+                        <tr>
+                            <td class="sr-no">17</td>
+                            <td>Dr. Neeti Keswani</td>
+                            <td>Department of Physics</td>
+                            <td class="committee-role">Member</td>
+                        </tr>
+                        <tr>
+                            <td class="sr-no">18</td>
+                            <td>Dr. Uqab Ali Baba Wazir</td>
+                            <td>Department of EVS</td>
+                            <td class="committee-role">Member</td>
+                        </tr>
+                        <tr>
+                            <td class="sr-no">19</td>
+                            <td>Ms. Anuj Mehla</td>
+                            <td>Department of Computer Science</td>
+                            <td class="committee-role">Member</td>
+                        </tr>
+                        <tr>
+                            <td class="sr-no">20</td>
+                            <td>Ms. Swarnima Dey</td>
+                            <td>Department of Food Technology</td>
+                            <td class="committee-role">Member</td>
+                        </tr>
+                        <tr>
+                            <td class="sr-no">21</td>
+                            <td>Ms. Raka Medhavi</td>
+                            <td>Department of Law</td>
+                            <td class="committee-role">Member</td>
+                        </tr>
+                        <tr>
+                            <td class="sr-no">22</td>
+                            <td>Mr. Deepak Tomar</td>
+                            <td>Department of Political Science</td>
+                            <td class="committee-role">Member</td>
+                        </tr>
+                        <tr>
+                            <td class="sr-no">23</td>
+                            <td>Ms. Amritha</td>
+                            <td>Department of Mangt and Commerce</td>
+                            <td class="committee-role">Member</td>
+                        </tr>
+                        <tr>
+                            <td class="sr-no">24</td>
+                            <td>Mr. Amit Kumar</td>
+                            <td>Department of Hotel Management</td>
+                            <td class="committee-role">Member</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="section">
+                <h2>Meeting Schedule</h2>
+                <p>The Statutory Committee meets quarterly to discuss ongoing initiatives, address challenges, and plan future actions. Special meetings may be convened as needed to address urgent matters requiring immediate attention.</p>
+                <ul>
+                    <li>First Quarter Meeting: January</li>
+                    <li>Second Quarter Meeting: April</li>
+                    <li>Third Quarter Meeting: July</li>
+                    <li>Fourth Quarter Meeting: October</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>Contact Information</h2>
+                <p>For queries related to the Statutory Committee:</p>
+                <ul>
+                    <li>Email: statutorycommittee@srmsonepat.edu.in</li>
+                    <li>Phone: +91-XX-XXXXXXXX</li>
+                    <li>Office: Administrative Block, 2nd Floor, Room No. 203</li>
+                </ul>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <p>Last Updated: April 27, 2025</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy;Copyright © 2025 SRM University Delhi-NCR, Sonepat. All rights reserved. </p>
+        </div>
+    </footer>
+</body>
+</html>
