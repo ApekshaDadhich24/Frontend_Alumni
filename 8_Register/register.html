@@ -100,16 +100,7 @@
 
       if (role === "alumni") {
         const graduationYear = document.getElementById("graduationYear").value;
-        const currentCompany = document.getElementById("currentCompany").value;
-        const jobTitle = document.getElementById("jobTitle").value;
-        const bio = document.getElementById("bio").value;
-        const linkedin = document.getElementById("linkedin").value;
-
         if (graduationYear) data.graduation_year = graduationYear;
-        if (currentCompany) data.current_company = currentCompany;
-        if (jobTitle) data.job_title = jobTitle;
-        if (bio) data.bio = bio;
-        if (linkedin) data.linkedin_url = linkedin;
       }
 
         try {
@@ -138,17 +129,21 @@
         localStorage.setItem('isAuthenticated', 'true');
         localStorage.setItem('username', username);
         
-        showCustomAlert("Account created successfully! Redirecting...", "success");
+        // showCustomAlert("Account created successfully! Redirecting...", "success");
+        showCustomAlert("Account created successfully! You'll need to log in first.", "success");
 
+        // setTimeout(() => {
+        //   window.location.href = `../1_HomePage/homePage.html?username=${encodeURIComponent(username)}`;
+        // }, 1000);
         setTimeout(() => {
-          window.location.href = `../1_HomePage\homePage.html?username=${encodeURIComponent(username)}`;
-        }, 1000);
+          window.location.href = "../7_Login/login.html?username=${encodeURIComponent(username)}";
+        }, 2000);
       
       } else {
         showCustomAlert("Registration failed: " + resData.detail, "error");
       }
     } catch (err) {
-      console.error("Error:", err);
+      // console.error("Error:", err);
       showCustomAlert("Error: " + err.message, "error");
     }
     });
